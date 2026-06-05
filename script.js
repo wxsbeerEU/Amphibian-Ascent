@@ -15,7 +15,7 @@ const ALGAE_VACUUM_SPEED = 12.0;
 const ALGAE_NORMAL_SPEED = 6.0;
 
 let KEYBINDS = {
-    "UP": "KeyZ",   // QWERTY/AZERTY equivalenten: KeyZ voor Z, KeyS voor S, etc.
+    "UP": "KeyZ",
     "DOWN": "KeyS",
     "LEFT": "KeyQ",
     "RIGHT": "KeyD"
@@ -56,7 +56,7 @@ function loadSound(key, src, isMusic=false) {
     ASSETS.sounds[key] = aud;
 }
 
-// Images
+// Inladen van alle afbeeldingen
 loadImage("map1", "map1.png");
 loadImage("kikkerdril", "kikkerdril.png");
 for(let i=1; i<=8; i++) loadImage(`kikkervisje${i}`, `kikkervisje${i}.png`);
@@ -79,7 +79,7 @@ loadImage("shop_bg", "shop_bg.png");
 loadImage("pauze_knop", "pauze_knop.png");
 loadImage("hartje", "hartje.png");
 
-// Sounds
+// Inladen van audio
 loadSound("music", "music.mp3", true);
 loadSound("dash", "dash_muziek.mp3");
 loadSound("kwak", "kwak_muziek.mp3");
@@ -103,7 +103,7 @@ function stopSfx(key) {
 }
 
 // ==============================================================================
-// SHOP ITEM POOL (100% Original Content)
+// SHOP ITEM POOL
 // ==============================================================================
 const SHOP_ITEMS = [
     // --- COMMON (20 items) ---
@@ -202,7 +202,7 @@ class Button {
         if (img && img.complete && img.naturalWidth > 0) {
             ctx.save();
             if ((this.isHovered || this.isSelected) && !this.disabled) {
-                ctx.globalAlpha = 0.7; // Simuleert de ADD blend mode hover
+                ctx.globalAlpha = 0.7;
             }
             ctx.drawImage(img, this.rect.x, this.rect.y, this.rect.w, this.rect.h);
             ctx.restore();
@@ -284,20 +284,16 @@ class ItemCard {
             return;
         }
 
-        // Shadow
         ctx.fillStyle = "rgba(0,0,0,0.4)";
         ctx.fillRect(this.rect.x + 6, this.rect.y + 6, this.rect.w, this.rect.h);
         
-        // Base bg
         ctx.fillStyle = this.isHovered ? "rgba(35,50,60,0.9)" : "rgba(15,20,25,0.7)";
         ctx.fillRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
         
-        // Outlines
         ctx.strokeStyle = this.isHovered ? COLOR_WHITE : this.rc;
         ctx.lineWidth = this.isHovered ? 4 : 2;
         ctx.strokeRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
 
-        // Texts
         let cx = this.rect.x + this.rect.w/2;
         ctx.textAlign = "center";
         ctx.textBaseline = "middle";
@@ -488,10 +484,10 @@ class Enemy {
     }
     draw(ctx, camera) {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
-        let drawColor = this.flashTimer > 0 ? "#ffffff" : this.color;
-        if (this.flashTimer > 0) this.flashTimer--;
+        let isFlashing = this.flashTimer > 0;
+        if (isFlashing) this.flashTimer--;
         
-        ctx.fillStyle = drawColor;
+        ctx.fillStyle = isFlashing ? "#ffffff" : this.color;
         ctx.beginPath();
         ctx.arc(sc.x, sc.y, this.visualRadius, 0, Math.PI * 2);
         ctx.fill();
@@ -533,18 +529,19 @@ class BacteriaEnemy extends Enemy {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
         let imgKey = this.isAngry ? "bacterieboos" : "bacterierustig";
         
-        if (this.flashTimer > 0) {
+        let isFlashing = this.flashTimer > 0;
+        if (isFlashing) {
             ctx.save();
             ctx.filter = "brightness(200%)";
             this.flashTimer--;
         }
         
         drawSpriteOrFallback(ctx, imgKey, sc.x, sc.y, this.visualRadius * 2.8, this.visualRadius * 2.8, this.angle, (c, x, y, w, h, a) => {
-            c.fillStyle = this.flashTimer > 0 ? "#ffffff" : this.color;
+            c.fillStyle = isFlashing ? "#ffffff" : this.color;
             c.beginPath(); c.arc(x, y, this.visualRadius, 0, Math.PI * 2); c.fill();
         });
         
-        if (this.flashTimer > 0) ctx.restore();
+        if (isFlashing) ctx.restore();
         this.drawHpBar(ctx, camera, sc.x, sc.y);
     }
 }
@@ -665,12 +662,13 @@ class FishEnemy extends Enemy {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
         let imgKey = this.state === "STRIKE" ? "visboos" : "visrustig";
         
-        if (this.flashTimer > 0) {
+        let isFlashing = this.flashTimer > 0;
+        if (isFlashing) {
             ctx.save(); ctx.filter = "brightness(200%)"; this.flashTimer--;
         }
         
         drawSpriteOrFallback(ctx, imgKey, sc.x, sc.y, 36, 36, this.facingAngle, (c, x, y, w, h, a) => {
-            c.fillStyle = this.flashTimer > 0 ? "#ffffff" : this.color;
+            c.fillStyle = isFlashing ? "#ffffff" : this.color;
             let tailL = 14;
             let p1 = [x - Math.cos(a)*this.radius, y - Math.sin(a)*this.radius];
             let p2 = [x - Math.cos(a)*this.radius - Math.cos(a - 0.6)*tailL, y - Math.sin(a)*this.radius - Math.sin(a - 0.6)*tailL];
@@ -679,7 +677,7 @@ class FishEnemy extends Enemy {
             c.beginPath(); c.arc(x, y, this.visualRadius, 0, Math.PI * 2); c.fill();
         });
         
-        if (this.flashTimer > 0) ctx.restore();
+        if (isFlashing) ctx.restore();
         this.drawHpBar(ctx, camera, sc.x, sc.y);
     }
 }
@@ -756,12 +754,13 @@ class DragonflyEnemy extends Enemy {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
         let imgKey = ["ANTICIPATE", "DASH"].includes(this.state) ? "libelleboos" : "libellerustig";
         
-        if (this.flashTimer > 0) {
+        let isFlashing = this.flashTimer > 0;
+        if (isFlashing) {
             ctx.save(); ctx.filter = "brightness(200%)"; this.flashTimer--;
         }
         
         drawSpriteOrFallback(ctx, imgKey, sc.x, sc.y, 32, 32, this.facingAngle, (c, x, y, w, h, a) => {
-            c.strokeStyle = this.flashTimer > 0 ? "#ffffff" : this.color;
+            c.strokeStyle = isFlashing ? "#ffffff" : this.color;
             c.lineWidth = 2;
             let flap = Math.sin(Date.now() * 0.05) * 0.5;
             
@@ -770,13 +769,13 @@ class DragonflyEnemy extends Enemy {
             c.beginPath(); c.moveTo(x, y); c.lineTo(x + Math.cos(a + 2.0 + flap) * 12, y + Math.sin(a + 2.0 + flap) * 12); c.stroke();
             c.beginPath(); c.moveTo(x, y); c.lineTo(x + Math.cos(a - 2.0 - flap) * 12, y + Math.sin(a - 2.0 - flap) * 12); c.stroke();
             
-            c.fillStyle = this.flashTimer > 0 ? "#ffffff" : this.color;
+            c.fillStyle = isFlashing ? "#ffffff" : this.color;
             c.beginPath(); c.arc(x, y, this.visualRadius - 2, 0, Math.PI * 2); c.fill();
             
             c.beginPath(); c.moveTo(x, y); c.lineTo(x - Math.cos(a) * 14, y - Math.sin(a) * 14); c.stroke();
         });
         
-        if (this.flashTimer > 0) ctx.restore();
+        if (isFlashing) ctx.restore();
         this.drawHpBar(ctx, camera, sc.x, sc.y);
     }
 }
@@ -879,7 +878,7 @@ class WitchBoss extends Enemy {
         this.hoverAngle = Math.random() * Math.PI * 2;
         this.spiralAngle = 0.0;
     }
-    updateBehavior(playerCx, playerCy) {} // Override logic in Main Update
+    updateBehavior(playerCx, playerCy) {} // Override logica in main update loop
     updateBoss(playerCx, playerCy, projectileQueue) {
         this.applyKnockback();
         
@@ -981,24 +980,24 @@ class WitchBoss extends Enemy {
     draw(ctx, camera) {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
         
-        if (this.flashTimer > 0) this.flashTimer--;
+        let isFlashing = this.flashTimer > 0;
+        if (isFlashing) this.flashTimer--;
 
         if (this.state === "SPIRAL") {
             ctx.strokeStyle = "#c832ff"; ctx.lineWidth = 2;
             ctx.beginPath(); ctx.arc(sc.x, sc.y, this.radius + 6, 0, Math.PI * 2); ctx.stroke();
         }
 
-        let imgKey = "heks";
-        if (this.flashTimer > 0) { ctx.save(); ctx.filter = "brightness(200%)"; }
+        if (isFlashing) { ctx.save(); ctx.filter = "brightness(200%)"; }
         
-        drawSpriteOrFallback(ctx, imgKey, sc.x, sc.y, this.radius * 2 + 10, this.radius * 2 + 10, this.facingAngle, (c, x, y, w, h, a) => {
+        drawSpriteOrFallback(ctx, "heks", sc.x, sc.y, this.radius * 2 + 10, this.radius * 2 + 10, this.facingAngle, (c, x, y, w, h, a) => {
             c.fillStyle = this.color;
             c.beginPath(); c.arc(x, y, this.radius, 0, Math.PI * 2); c.fill();
             c.fillStyle = "#ffffff";
             c.beginPath(); c.arc(x + Math.cos(a) * this.radius, y + Math.sin(a) * this.radius, 5, 0, Math.PI * 2); c.fill();
         });
         
-        if (this.flashTimer > 0) ctx.restore();
+        if (isFlashing) ctx.restore();
         this.drawHpBar(ctx, camera, sc.x, sc.y);
     }
 }
@@ -1070,7 +1069,7 @@ class EvolutionPhase {
     processAttacks(enemies, playerCx, playerCy, dmgM, camera) {}
 }
 
-class EggPhase extends EvolutionPhase {
+class KikkerdrilPhase extends EvolutionPhase {
     constructor(player) {
         super(player);
         this.name = "EGG"; this.tier = 1; this.radius = 16;
@@ -1124,7 +1123,7 @@ class EggPhase extends EvolutionPhase {
     }
 }
 
-class TadpolePhase extends EvolutionPhase {
+class KikkervisPhase extends EvolutionPhase {
     constructor(player) {
         super(player);
         this.name = "TADPOLE"; this.tier = 2; this.radius = 14;
@@ -1433,7 +1432,6 @@ class PrinsPhase extends EvolutionPhase {
                     
                     let enemyAngularMargin = enemy.radius / Math.max(1.0, dist);
                     
-                    // Circular sweep collision logic
                     if (diffToEnemy <= currentSweep + enemyAngularMargin || diffToEnemy >= (Math.PI*2) - enemyAngularMargin) {
                         enemy.hit(85 * dmgM, Math.cos(this.slashAngle) * 18.0, Math.sin(this.slashAngle) * 18.0);
                         this.hitEnemies.add(enemy);
@@ -1457,7 +1455,7 @@ class Player {
         this.actionPressed = false; this.dashPressed = false; this.aimAngle = 0.0;
         this.speedMod = 1.0; this.damageMod = 1.0; this.attackSizeMod = 1.0; this.magnetRadius = 130;
         
-        this.phase = new EggPhase(this);
+        this.phase = new KikkerdrilPhase(this);
         this.maxLives = this.phase.maxLives;
         this.lives = this.maxLives;
     }
@@ -1472,23 +1470,19 @@ class Player {
 
         let dx = 0.0, dy = 0.0;
         
-        // Keyboard
         if (keys[KEYBINDS.LEFT] || keys["ArrowLeft"]) dx -= 1.0;
         if (keys[KEYBINDS.RIGHT] || keys["ArrowRight"]) dx += 1.0;
         if (keys[KEYBINDS.UP] || keys["ArrowUp"]) dy -= 1.0;
         if (keys[KEYBINDS.DOWN] || keys["ArrowDown"]) dy += 1.0;
 
-        // Gamepad Left Stick
         if (joy && joy.axes.length >= 2) {
             if (Math.abs(joy.axes[0]) > 0.15) dx += joy.axes[0];
             if (Math.abs(joy.axes[1]) > 0.15) dy += joy.axes[1];
         }
 
-        // Actions
         this.actionPressed = mouse.pressed || (joy && joy.buttons[0]?.pressed) || (joy && joy.buttons[7]?.pressed) || (joy && joy.axes[5] > 0.5);
         this.dashPressed = keys["Space"] || (joy && (joy.buttons[1]?.pressed || joy.buttons[2]?.pressed || joy.buttons[5]?.pressed));
 
-        // Aiming
         let screenCx = this.x + this.width / 2 - camera.x;
         let screenCy = this.y + this.height / 2 - camera.y;
         
@@ -1498,7 +1492,6 @@ class Player {
             this.aimAngle = Math.atan2(mouse.y - screenCy, mouse.x - screenCx);
         }
 
-        // Movement Normalization
         let length = Math.hypot(dx, dy);
         if (length > 1.0) { dx /= length; dy /= length; }
 
@@ -1529,7 +1522,6 @@ class Player {
         let cy = this.y + this.height / 2 - camera.y;
         this.phase.draw(ctx, camera, cx, cy);
 
-        // Energy Bar
         let barW = 40, barH = 8;
         let barX = cx - barW / 2;
         let barY = cy + this.phase.radius + 8;
@@ -1569,7 +1561,6 @@ class CRTEffect {
         this.overlay.height = GAME_HEIGHT;
         let ctx = this.overlay.getContext("2d");
         
-        // Scanlines
         ctx.fillStyle = "rgba(0,0,0,0.15)";
         for (let y = 0; y < GAME_HEIGHT; y += 3) {
             ctx.fillRect(0, y, GAME_WIDTH, 1);
@@ -1699,7 +1690,7 @@ class StateManager {
             this.inputMethod = "MOUSE";
             this.mouse.pressed = true;
             
-            // Audio unlock
+            // Audio unlock op eerste klik
             if (!audioInitialized) {
                 audioInitialized = true;
                 if (SOUND_ENABLED && ASSETS.sounds["music"] && ASSETS.sounds["music"].paused) {
@@ -1733,16 +1724,16 @@ class StateManager {
             this.uiElements.push(new Button(cx, 300, 250, 45, "HOW TO PLAY", () => this.changeState("HOW_TO_PLAY")));
             this.uiElements.push(new Button(cx, 355, 250, 45, "SETTINGS", () => { this.returnTo = "MENU"; this.changeState("SETTINGS"); }));
         } else if (this.currentStateName === "PHASE_SELECT") {
-            this.uiElements.push(new Button(cx, 150, 400, 45, "START AS EGG (WAVE 1)", () => this._startRun(EggPhase, 1)));
-            this.uiElements.push(new Button(cx, 210, 400, 45, "START AS TADPOLE (WAVE 4)", () => this._startRun(TadpolePhase, 4)));
-            this.uiElements.push(new Button(cx, 270, 400, 45, "START AS FROG (WAVE 8)", () => this._startRun(FrogPhase, 8)));
+            this.uiElements.push(new Button(cx, 150, 400, 45, "START AS EGG (WAVE 1)", () => this._startRun(KikkerdrilPhase, 1)));
+            this.uiElements.push(new Button(cx, 210, 400, 45, "START AS TADPOLE (WAVE 4)", () => this._startRun(KikkervisPhase, 4)));
+            this.uiElements.push(new Button(cx, 270, 400, 45, "START AS FROG (WAVE 8)", () => this._startRun(KikkerPhase, 8)));
             this.uiElements.push(new Button(cx, 330, 400, 45, "START AS PRINCE (WAVE 10)", () => this._startRun(PrinsPhase, 10)));
             this.uiElements.push(new Button(cx, 450, 400, 45, "BACK", () => this.changeState("MENU")));
         } else if (this.currentStateName === "PLAY" || this.currentStateName === "TUTORIAL") {
             this.uiElements.push(new Button(GAME_WIDTH - 40, 40, 50, 50, "II", () => { this.returnTo = this.currentStateName; this.changeState("PAUSE"); }, "pauze_knop"));
         } else if (this.currentStateName === "PAUSE") {
             this.uiElements.push(new Button(cx, 200, 250, 45, "RESUME", () => this.changeState(this.returnTo)));
-            this.uiElements.push(new Button(cx, 260, 250, 45, "RESTART", () => this._startRun(EggPhase, 1)));
+            this.uiElements.push(new Button(cx, 260, 250, 45, "RESTART", () => this._startRun(KikkerdrilPhase, 1)));
             this.uiElements.push(new Button(cx, 320, 250, 45, "SETTINGS", () => { this.returnTo = "PAUSE"; this.changeState("SETTINGS"); }));
             this.uiElements.push(new Button(cx, 380, 250, 45, "MAIN MENU", () => this.changeState("MENU")));
         } else if (this.currentStateName === "SHOP") {
@@ -1752,25 +1743,26 @@ class StateManager {
             }
             this.uiElements.push(new Button(cx, 490, 280, 40, "START NEXT WAVE", () => this.changeState("PLAY")));
         } else if (this.currentStateName === "GAME_OVER") {
-            this.uiElements.push(new Button(cx, 380, 250, 45, "TRY AGAIN", () => this._startRun(EggPhase, 1)));
+            this.uiElements.push(new Button(cx, 380, 250, 45, "TRY AGAIN", () => this._startRun(KikkerdrilPhase, 1)));
             this.uiElements.push(new Button(cx, 440, 250, 45, "MAIN MENU", () => this.changeState("MENU")));
         } else if (this.currentStateName === "HOW_TO_PLAY") {
             this.uiElements.push(new Button(cx, 430, 250, 45, "PLAY TUTORIAL", () => {
-                this._startRun(EggPhase, 1);
+                this._startRun(KikkerdrilPhase, 1);
                 this.changeState("TUTORIAL", true);
                 this.player.maxLives = 99;
                 this.player.lives = 99;
             }));
             this.uiElements.push(new Button(cx, 490, 250, 45, "BACK", () => this.changeState("MENU")));
         } else if (this.currentStateName === "SETTINGS") {
-            this.uiElements.push(new Button(cx, 135, 160, 25, "CUSTOMIZE", () => this.changeState("KEYBINDS")));
-            this.uiElements.push(new Button(cx - 40, 185, 60, 25, "ON", () => { SOUND_ENABLED = true; if(ASSETS.sounds["music"] && ASSETS.sounds["music"].paused) ASSETS.sounds["music"].play().catch(()=>{}); }));
-            this.uiElements.push(new Button(cx + 40, 185, 60, 25, "OFF", () => { SOUND_ENABLED = false; if(ASSETS.sounds["music"]) ASSETS.sounds["music"].pause(); }));
-            this.uiElements.push(new Button(cx - 40, 285, 60, 25, "ON", () => this.crtEffect.enabled = true));
-            this.uiElements.push(new Button(cx + 40, 285, 60, 25, "OFF", () => this.crtEffect.enabled = false));
+            let y_controls = 140, y_sound = 200, y_crt = 260, y_color = 320;
+            this.uiElements.push(new Button(cx, y_controls, 160, 25, "CUSTOMIZE", () => this.changeState("KEYBINDS")));
+            this.uiElements.push(new Button(cx - 40, y_sound, 60, 25, "ON", () => { SOUND_ENABLED = true; if(ASSETS.sounds["music"] && ASSETS.sounds["music"].paused) ASSETS.sounds["music"].play().catch(()=>{}); }));
+            this.uiElements.push(new Button(cx + 40, y_sound, 60, 25, "OFF", () => { SOUND_ENABLED = false; if(ASSETS.sounds["music"]) ASSETS.sounds["music"].pause(); }));
+            this.uiElements.push(new Button(cx - 40, y_crt, 60, 25, "ON", () => this.crtEffect.enabled = true));
+            this.uiElements.push(new Button(cx + 40, y_crt, 60, 25, "OFF", () => this.crtEffect.enabled = false));
             
             let colors = ["#ffd700", "#32ff64", "#00c8ff", "#ff32ff", "#f0f0f0"];
-            colors.forEach((c, i) => this.uiElements.push(new ColorButton(cx - 60 + (i * 30), 355, 8, c, () => this.cursor.color = c)));
+            colors.forEach((c, i) => this.uiElements.push(new ColorButton(cx - 60 + (i * 30), y_color + 35, 8, c, () => this.cursor.color = c)));
             
             this.uiElements.push(new Button(cx, 445, 220, 40, "BACK", () => this.changeState(this.returnTo === "SETTINGS" ? "MENU" : this.returnTo)));
         } else if (this.currentStateName === "KEYBINDS") {
@@ -1810,14 +1802,12 @@ class StateManager {
     }
 
     update() {
-        // Gamepad handling
         let pads = navigator.getGamepads ? navigator.getGamepads() : [];
         this.joy = pads[0] || null;
         if (this.joy && (Math.abs(this.joy.axes[0])>0.2 || Math.abs(this.joy.axes[1])>0.2 || Math.abs(this.joy.axes[2])>0.2 || this.joy.buttons.some(b=>b.pressed))) {
             this.inputMethod = "CONTROLLER";
         }
 
-        // Global Escape / Start Button handler
         if (this.keys["Escape"]) {
             this.keys["Escape"] = false;
             if (["PLAY", "TUTORIAL", "SHOP", "SETTINGS", "KEYBINDS", "HOW_TO_PLAY"].includes(this.currentStateName)) {
@@ -1828,7 +1818,6 @@ class StateManager {
             }
         }
 
-        // Transitions
         if (this.targetState) {
             this.transitionAlpha += 15;
             if (this.transitionAlpha >= 255) {
@@ -1841,7 +1830,6 @@ class StateManager {
             this.transitionAlpha -= 15;
         }
 
-        // Update UI Hover states
         this.uiElements.forEach(btn => {
             btn.isHovered = (this.mouse.x > btn.rect.x && this.mouse.x < btn.rect.x + btn.rect.w && this.mouse.y > btn.rect.y && this.mouse.y < btn.rect.y + btn.rect.h);
         });
@@ -1855,7 +1843,6 @@ class StateManager {
             });
         }
 
-        // --- PLAY & TUTORIAL LOGIC ---
         if (this.currentStateName === "PLAY" || this.currentStateName === "TUTORIAL") {
             if (this.currentStateName === "PLAY") this.totalFrames++;
             
@@ -1863,7 +1850,7 @@ class StateManager {
             this.deathParticles = this.deathParticles.filter(p => p.alpha > 0);
 
             if (this.player.lives <= 0) {
-                if (this.introTimer === 0) { // Just died
+                if (this.introTimer === 0) {
                     this.introTimer = 90;
                     this.camera.shake(10);
                     for(let i=0; i<40; i++) this.deathParticles.push(new Particle(this.player.x, this.player.y, this.player.phase.deathColor));
@@ -1891,8 +1878,8 @@ class StateManager {
                     this.player.x = WORLD_WIDTH / 2; this.player.y = WORLD_HEIGHT / 2;
                     this.player.energy = this.player.maxEnergy; this.player.lives = this.player.maxLives;
                     
-                    if (this.wave === 4 && this.player.phase.tier < 2) this.player.evolve(TadpolePhase);
-                    if (this.wave === 8 && this.player.phase.tier < 3) this.player.evolve(FrogPhase);
+                    if (this.wave === 4 && this.player.phase.tier < 2) this.player.evolve(KikkervisPhase);
+                    if (this.wave === 8 && this.player.phase.tier < 3) this.player.evolve(KikkerPhase);
                     if (this.wave === 10 && this.player.phase.tier < 4) this.player.evolve(PrinsPhase);
                     
                     this.waveTimer = WAVE_DURATION * FPS;
@@ -1900,9 +1887,9 @@ class StateManager {
                     return;
                 }
             } else if (this.currentStateName === "TUTORIAL") {
-                if (this.keys["Digit1"]) this.player.evolve(EggPhase);
-                if (this.keys["Digit2"]) this.player.evolve(TadpolePhase);
-                if (this.keys["Digit3"]) this.player.evolve(FrogPhase);
+                if (this.keys["Digit1"]) this.player.evolve(KikkerdrilPhase);
+                if (this.keys["Digit2"]) this.player.evolve(KikkervisPhase);
+                if (this.keys["Digit3"]) this.player.evolve(KikkerPhase);
                 if (this.keys["Digit4"]) this.player.evolve(PrinsPhase);
             }
 
@@ -1910,7 +1897,6 @@ class StateManager {
             this.player.update(this.keys, this.mouse, this.joy, this.camera);
             this.camera.update(pCx, pCy);
 
-            // Spawning Logic
             if (this.currentStateName === "TUTORIAL") {
                 if (this.totalFrames++ % 60 === 0 && this.enemies.length < 12) {
                     let a = Math.random() * Math.PI * 2;
@@ -1934,7 +1920,6 @@ class StateManager {
             
             while(this.projectileQueue.length > 0) this.enemies.push(this.projectileQueue.shift());
 
-            // Enemy-Enemy Collision
             for (let i = 0; i < this.enemies.length; i++) {
                 for (let j = i + 1; j < this.enemies.length; j++) {
                     let e1 = this.enemies[i], e2 = this.enemies[j];
@@ -1990,7 +1975,7 @@ class StateManager {
             this.enemies = this.enemies.filter(e => e.hp > 0);
             
             if (this.wave >= 10 && this.enemies.length === 0 && this.introTimer === 0 && this.totalFrames > 100) {
-                this.changeState("GAME_OVER"); // Victory
+                this.changeState("GAME_OVER"); // Win!
             }
         }
     }
@@ -2012,7 +1997,6 @@ class StateManager {
             this.deathParticles.forEach(p => p.draw(this.ctx, this.camera));
             if (this.player.lives > 0) this.player.draw(this.ctx, this.camera);
 
-            // Draw Hearts
             for (let i = 0; i < this.player.maxLives; i++) {
                 let hX = 20 + i * 26;
                 drawSpriteOrFallback(this.ctx, "hartje", hX + 10, 30, 20, 20, 0, (c, x, y, w, h) => {
@@ -2043,7 +2027,6 @@ class StateManager {
                 this.ctx.fillText("IMMORTAL ACTIVE | PRESS 1, 2, 3, 4 TO CHANGE FORM", 20, 130);
             }
 
-            // Controls Hint Bar
             let pA = {
                 "EGG": "ATTACK [HOLD MOUSE-1 / RT]: POISON AURA (RADIUS PULSES & DRAINS ENERGY)",
                 "TADPOLE": "ATTACK [HOLD MOUSE-1 / RT]: SHOOT BUBBLES  |  [SPACE / B]: HIGH-SPEED DASH",
@@ -2062,7 +2045,6 @@ class StateManager {
                 this.ctx.fillText(pA[this.player.phase.name], cx, GAME_HEIGHT - 17);
             }
 
-            // Wave Intro
             if (this.introTimer > 0 && this.currentStateName !== "TUTORIAL" && this.player.lives > 0) {
                 let msg = this.wave === 1 ? "FIGHT THE BACTERIA" : this.wave === 4 ? "FIGHT THE FISHES" : this.wave === 8 ? "FIGHT THE DRAGONFLIES" : "DEFEAT THE WITCH!";
                 this.ctx.fillStyle = `rgba(0,0,0,${Math.sin((this.introTimer / 120) * Math.PI)})`;
@@ -2074,7 +2056,6 @@ class StateManager {
             this.uiElements.forEach(b => b.draw(this.ctx));
             
         } else {
-            // Menus
             let bgs = { MENU: "achtergrond", PHASE_SELECT: "achtergrond", PAUSE: "achtergrond", SHOP: "shop_bg", GAME_OVER: this.wave >= 10 && this.enemies.length === 0 ? "victory" : "gameover", SETTINGS: "settings", KEYBINDS: "keybinds", HOW_TO_PLAY: "howtoplay" };
             let bgKey = bgs[this.currentStateName];
             
@@ -2085,10 +2066,7 @@ class StateManager {
                 this.ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
             }
 
-            if (this.currentStateName === "MENU") {
-                this.ctx.fillStyle = COLOR_ARCADE_GREEN; this.ctx.font = getFont(45); this.ctx.textAlign = "center";
-                this.ctx.fillText("FROG EVOLUTION", cx, 100);
-            } else if (this.currentStateName === "PHASE_SELECT") {
+            if (this.currentStateName === "PHASE_SELECT") {
                 this.ctx.fillStyle = COLOR_ARCADE_GOLD; this.ctx.font = getFont(30); this.ctx.textAlign = "center";
                 this.ctx.fillText("SELECT STARTING PHASE", cx, 70);
             } else if (this.currentStateName === "PAUSE") {
@@ -2117,7 +2095,10 @@ class StateManager {
                 this.ctx.fillStyle = COLOR_WHITE; this.ctx.fillText(timeStr, cx + 10, sy + 120);
             } else if (this.currentStateName === "SETTINGS") {
                 this.ctx.fillStyle = COLOR_ARCADE_GREEN; this.ctx.font = getFont(15); this.ctx.textAlign = "center";
-                ["CONTROLS", "SOUND", "FULLSCREEN", "RETRO CRT EFFECT", "CURSOR COLOR"].forEach((t, i) => this.ctx.fillText(t, cx, 110 + i * 50 + (i === 4 ? 10 : 0)));
+                ["CONTROLS", "SOUND", "RETRO CRT EFFECT", "CURSOR COLOR"].forEach((t, i) => {
+                    let ys = [115, 175, 235, 295];
+                    this.ctx.fillText(t, cx, ys[i]);
+                });
             } else if (this.currentStateName === "KEYBINDS") {
                 this.ctx.fillStyle = COLOR_ARCADE_GREEN; this.ctx.font = getFont(15); this.ctx.textAlign = "center";
                 ["MOVE UP", "MOVE DOWN", "MOVE LEFT", "MOVE RIGHT"].forEach((t, i) => this.ctx.fillText(t, cx, 160 + i * 60));
@@ -2127,7 +2108,7 @@ class StateManager {
                 
                 this.ctx.fillStyle = COLOR_WHITE; this.ctx.font = getFont(13);
                 ["SURVIVE 30-SECOND WAVES", "COLLECT ALGAE DROPPED BY ENEMIES", "BUY UPGRADES IN THE SHOP"].forEach((t, i) => this.ctx.fillText(t, cx, 145 + i * 16));
-                ["MOVE: WASD OR ARROW KEYS / LEFT JOYSTICK", "AIM: MOUSE / RIGHT JOYSTICK", "ATTACK: LEFT CLICK / RT", "DASH: SPACEBAR / B BUTTON"].forEach((t, i) => this.ctx.fillText(t, cx, 221 + i * 16));
+                ["MOVE: WASD/ZQSD OF PIJLTJES / LEFT JOYSTICK", "AIM: MOUSE / RIGHT JOYSTICK", "ATTACK: LEFT CLICK / RT", "DASH: SPACEBAR / B BUTTON"].forEach((t, i) => this.ctx.fillText(t, cx, 221 + i * 16));
                 ["WAVE 1: EGG", "WAVE 4: TADPOLE", "WAVE 8: FROG", "WAVE 10: PRINCE"].forEach((t, i) => this.ctx.fillText(t, cx, 313 + i * 16));
             }
 
