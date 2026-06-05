@@ -106,17 +106,17 @@ function stopSfx(key) {
 // SHOP ITEM POOL
 // ==============================================================================
 const SHOP_ITEMS = [
-    // --- COMMON (20 items) ---
+    // --- COMMON ---
     {"name": "Rusty Nail", "desc": "+5% Damage", "price": 10, "rarity": "Common", "stats": {"dmg": 0.05, "spd": 0, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Water Drop", "desc": "+5% Speed", "price": 10, "rarity": "Common", "stats": {"dmg": 0, "spd": 0.05, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Mosquito Eye", "desc": "+10 Magnet", "price": 12, "rarity": "Common", "stats": {"dmg": 0, "spd": 0, "hp": 0, "size": 0, "mag": 10}},
     {"name": "Duckweed", "desc": "+5% Attack Size", "price": 12, "rarity": "Common", "stats": {"dmg": 0, "spd": 0, "hp": 0, "size": 0.05, "mag": 0}},
-    {"name": "Pebble", "desc": "+3% Damage, +2% Speed", "price": 12, "rarity": "Common", "stats": {"dmg": 0.03, "spd": 0.02, "hp": 0, "size": 0, "mag": 0}},
-    {"name": "Mud", "desc": "+8% Damage, -3% Speed", "price": 10, "rarity": "Common", "stats": {"dmg": 0.08, "spd": -0.03, "hp": 0, "size": 0, "mag": 0}},
-    {"name": "Light Breeze", "desc": "+8% Speed, -3% Damage", "price": 10, "rarity": "Common", "stats": {"dmg": -0.03, "spd": 0.08, "hp": 0, "size": 0, "mag": 0}},
+    {"name": "Pebble", "desc": "+3% Dmg, +2% Spd", "price": 12, "rarity": "Common", "stats": {"dmg": 0.03, "spd": 0.02, "hp": 0, "size": 0, "mag": 0}},
+    {"name": "Mud", "desc": "+8% Dmg, -3% Spd", "price": 10, "rarity": "Common", "stats": {"dmg": 0.08, "spd": -0.03, "hp": 0, "size": 0, "mag": 0}},
+    {"name": "Light Breeze", "desc": "+8% Spd, -3% Dmg", "price": 10, "rarity": "Common", "stats": {"dmg": -0.03, "spd": 0.08, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Chickpea", "desc": "+1 Max HP", "price": 15, "rarity": "Common", "stats": {"dmg": 0, "spd": 0, "hp": 1, "size": 0, "mag": 0}},
     {"name": "Old Coin", "desc": "+15 Magnet", "price": 14, "rarity": "Common", "stats": {"dmg": 0, "spd": 0, "hp": 0, "size": 0, "mag": 15}},
-    {"name": "Small Carrot", "desc": "+5% Damage, +5 Magnet", "price": 13, "rarity": "Common", "stats": {"dmg": 0.05, "spd": 0, "hp": 0, "size": 0, "mag": 5}},
+    {"name": "Small Carrot", "desc": "+5% Dmg, +5 Mag", "price": 13, "rarity": "Common", "stats": {"dmg": 0.05, "spd": 0, "hp": 0, "size": 0, "mag": 5}},
     {"name": "Fly Wing", "desc": "+6% Speed", "price": 11, "rarity": "Common", "stats": {"dmg": 0, "spd": 0.06, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Grain of Sand", "desc": "+4% Damage", "price": 9, "rarity": "Common", "stats": {"dmg": 0.04, "spd": 0, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Dew", "desc": "+4% Attack Size, +2% Speed", "price": 13, "rarity": "Common", "stats": {"dmg": 0, "spd": 0.02, "hp": 0, "size": 0.04, "mag": 0}},
@@ -128,7 +128,7 @@ const SHOP_ITEMS = [
     {"name": "Fluff", "desc": "+5% Speed, +5 Magnet", "price": 12, "rarity": "Common", "stats": {"dmg": 0, "spd": 0.05, "hp": 0, "size": 0, "mag": 5}},
     {"name": "Mussel", "desc": "+1 Max HP, -5% Damage", "price": 13, "rarity": "Common", "stats": {"dmg": -0.05, "spd": 0, "hp": 1, "size": 0, "mag": 0}},
 
-    // --- RARE (15 items) ---
+    // --- RARE ---
     {"name": "Sharp Tooth", "desc": "+15% Damage", "price": 25, "rarity": "Rare", "stats": {"dmg": 0.15, "spd": 0, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Dragonfly Wing", "desc": "+15% Speed", "price": 25, "rarity": "Rare", "stats": {"dmg": 0, "spd": 0.15, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Water Lily", "desc": "+15% Attack Size", "price": 26, "rarity": "Rare", "stats": {"dmg": 0, "spd": 0, "hp": 0, "size": 0.15, "mag": 0}},
@@ -145,7 +145,7 @@ const SHOP_ITEMS = [
     {"name": "Flipper", "desc": "+18% Speed", "price": 27, "rarity": "Rare", "stats": {"dmg": 0, "spd": 0.18, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Small Frog", "desc": "+1 Max HP, +8% Damage", "price": 29, "rarity": "Rare", "stats": {"dmg": 0.08, "spd": 0, "hp": 1, "size": 0, "mag": 0}},
 
-    // --- EPIC (10 items) ---
+    // --- EPIC ---
     {"name": "Witch Eye", "desc": "+40% Damage", "price": 45, "rarity": "Epic", "stats": {"dmg": 0.40, "spd": 0, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Aerodynamics", "desc": "+35% Speed", "price": 45, "rarity": "Epic", "stats": {"dmg": 0, "spd": 0.35, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Golden Beetle", "desc": "+25% Damage, +2 Max HP", "price": 50, "rarity": "Epic", "stats": {"dmg": 0.25, "spd": 0, "hp": 2, "size": 0, "mag": 0}},
@@ -157,7 +157,7 @@ const SHOP_ITEMS = [
     {"name": "Parasite", "desc": "+45% Damage, -2 Max HP", "price": 38, "rarity": "Epic", "stats": {"dmg": 0.45, "spd": 0, "hp": -2, "size": 0, "mag": 0}},
     {"name": "Black Pearl", "desc": "+60 Magnet, +20% Speed", "price": 46, "rarity": "Epic", "stats": {"dmg": 0, "spd": 0.20, "hp": 0, "size": 0, "mag": 60}},
 
-    // --- LEGENDARY (5 items) ---
+    // --- LEGENDARY ---
     {"name": "Pond Crown", "desc": "+50% Damage, +30% Speed, +2 Max HP", "price": 80, "rarity": "Legendary", "stats": {"dmg": 0.50, "spd": 0.30, "hp": 2, "size": 0, "mag": 0}},
     {"name": "Dragon Heart", "desc": "+100% Damage, -10% Speed", "price": 75, "rarity": "Legendary", "stats": {"dmg": 1.00, "spd": -0.10, "hp": 0, "size": 0, "mag": 0}},
     {"name": "Divine Lily", "desc": "+100% Attack Size, +5 Max HP", "price": 85, "rarity": "Legendary", "stats": {"dmg": 0, "spd": 0, "hp": 5, "size": 1.00, "mag": 0}},
@@ -168,9 +168,7 @@ const SHOP_ITEMS = [
 // ==============================================================================
 // UI COMPONENTS
 // ==============================================================================
-function getFont(size) {
-    return `bold ${size}px 'Courier New'`;
-}
+function getFont(size) { return `bold ${size}px 'Courier New'`; }
 
 function drawSpriteOrFallback(ctx, imgKey, x, y, w, h, angle, fallback) {
     let img = ASSETS.images[imgKey];
@@ -189,21 +187,15 @@ class Button {
     constructor(x, y, w, h, text, callback, imgKey=null, colorOverride=null) {
         this.rect = { x: x - w/2, y: y - h/2, w: w, h: h };
         this.shadow_rect = { x: this.rect.x + 4, y: this.rect.y + 4, w: w, h: h };
-        this.text = text;
-        this.callback = callback;
-        this.imgKey = imgKey;
+        this.text = text; this.callback = callback; this.imgKey = imgKey;
         this.base_color = colorOverride || COLOR_BUTTON;
-        this.isHovered = false;
-        this.isSelected = false;
-        this.disabled = false;
+        this.isHovered = false; this.isSelected = false; this.disabled = false;
     }
     draw(ctx) {
         let img = ASSETS.images[this.imgKey];
         if (img && img.complete && img.naturalWidth > 0) {
             ctx.save();
-            if ((this.isHovered || this.isSelected) && !this.disabled) {
-                ctx.globalAlpha = 0.7;
-            }
+            if ((this.isHovered || this.isSelected) && !this.disabled) ctx.globalAlpha = 0.7;
             ctx.drawImage(img, this.rect.x, this.rect.y, this.rect.w, this.rect.h);
             ctx.restore();
         } else {
@@ -213,14 +205,11 @@ class Button {
             }
             ctx.fillStyle = this.disabled ? "#505050" : ((this.isHovered || this.isSelected) ? COLOR_BUTTON_HOVER : this.base_color);
             ctx.fillRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
-            ctx.strokeStyle = COLOR_WHITE;
-            ctx.lineWidth = 3;
+            ctx.strokeStyle = COLOR_WHITE; ctx.lineWidth = 3;
             ctx.strokeRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
             
             ctx.fillStyle = this.disabled ? "#969696" : COLOR_WHITE;
-            ctx.font = getFont(18);
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
+            ctx.font = getFont(18); ctx.textAlign = "center"; ctx.textBaseline = "middle";
             ctx.fillText(this.text, this.rect.x + this.rect.w/2, this.rect.y + this.rect.h/2);
         }
     }
@@ -229,12 +218,8 @@ class Button {
 class ColorButton {
     constructor(x, y, radius, color, callback) {
         this.rect = { x: x - radius, y: y - radius, w: radius*2, h: radius*2 };
-        this.color = color;
-        this.callback = callback;
-        this.radius = radius;
-        this.isHovered = false;
-        this.isSelected = false;
-        this.disabled = false;
+        this.color = color; this.callback = callback; this.radius = radius;
+        this.isHovered = false; this.isSelected = false; this.disabled = false;
     }
     draw(ctx, isActive) {
         let cx = this.rect.x + this.radius, cy = this.rect.y + this.radius;
@@ -257,10 +242,8 @@ class ColorButton {
 class ItemCard {
     constructor(x, y, w, h, item, callback) {
         this.rect = { x: x - w/2, y: y - h/2, w: w, h: h };
-        this.item = item;
-        this.callback = callback;
-        this.isHovered = false;
-        this.disabled = false;
+        this.item = item; this.callback = callback;
+        this.isHovered = false; this.disabled = false;
         
         if (item.rarity === "Common") this.rc = "#b4b8be";
         else if (item.rarity === "Rare") this.rc = "#00c8ff";
@@ -270,49 +253,24 @@ class ItemCard {
     }
     draw(ctx) {
         if (this.disabled) {
-            ctx.fillStyle = "rgba(25,25,25,0.6)";
-            ctx.fillRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
-            ctx.strokeStyle = "#505050";
-            ctx.lineWidth = 2;
-            ctx.strokeRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
-            
-            ctx.fillStyle = "#646464";
-            ctx.font = getFont(16);
-            ctx.textAlign = "center";
-            ctx.textBaseline = "middle";
+            ctx.fillStyle = "rgba(25,25,25,0.6)"; ctx.fillRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
+            ctx.strokeStyle = "#505050"; ctx.lineWidth = 2; ctx.strokeRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
+            ctx.fillStyle = "#646464"; ctx.font = getFont(16); ctx.textAlign = "center"; ctx.textBaseline = "middle";
             ctx.fillText("SOLD OUT", this.rect.x + this.rect.w/2, this.rect.y + this.rect.h/2);
             return;
         }
 
-        ctx.fillStyle = "rgba(0,0,0,0.4)";
-        ctx.fillRect(this.rect.x + 6, this.rect.y + 6, this.rect.w, this.rect.h);
+        ctx.fillStyle = "rgba(0,0,0,0.4)"; ctx.fillRect(this.rect.x + 6, this.rect.y + 6, this.rect.w, this.rect.h);
+        ctx.fillStyle = this.isHovered ? "rgba(35,50,60,0.9)" : "rgba(15,20,25,0.7)"; ctx.fillRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
         
-        ctx.fillStyle = this.isHovered ? "rgba(35,50,60,0.9)" : "rgba(15,20,25,0.7)";
-        ctx.fillRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
-        
-        ctx.strokeStyle = this.isHovered ? COLOR_WHITE : this.rc;
-        ctx.lineWidth = this.isHovered ? 4 : 2;
+        ctx.strokeStyle = this.isHovered ? COLOR_WHITE : this.rc; ctx.lineWidth = this.isHovered ? 4 : 2;
         ctx.strokeRect(this.rect.x, this.rect.y, this.rect.w, this.rect.h);
 
-        let cx = this.rect.x + this.rect.w/2;
-        ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        
-        ctx.fillStyle = COLOR_WHITE;
-        ctx.font = getFont(16);
-        ctx.fillText(this.item.name.toUpperCase(), cx, this.rect.y + 18);
-        
-        ctx.fillStyle = this.rc;
-        ctx.font = getFont(10);
-        ctx.fillText(this.item.rarity.toUpperCase(), cx, this.rect.y + 36);
-        
-        ctx.fillStyle = "#acc8d2";
-        ctx.font = getFont(13);
-        ctx.fillText(this.item.desc, cx, this.rect.y + 58);
-        
-        ctx.fillStyle = "#32ff64";
-        ctx.font = getFont(15);
-        ctx.fillText(`BUY: ${this.item.price} ALGAE`, cx, this.rect.y + 84);
+        let cx = this.rect.x + this.rect.w/2; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillStyle = COLOR_WHITE; ctx.font = getFont(16); ctx.fillText(this.item.name.toUpperCase(), cx, this.rect.y + 18);
+        ctx.fillStyle = this.rc; ctx.font = getFont(10); ctx.fillText(this.item.rarity.toUpperCase(), cx, this.rect.y + 36);
+        ctx.fillStyle = "#acc8d2"; ctx.font = getFont(13); ctx.fillText(this.item.desc, cx, this.rect.y + 58);
+        ctx.fillStyle = "#32ff64"; ctx.font = getFont(15); ctx.fillText(`BUY: ${this.item.price} ALGAE`, cx, this.rect.y + 84);
     }
 }
 
@@ -320,14 +278,8 @@ class ItemCard {
 // ENGINE SYSTEMS (CAMERA & PARTICLES)
 // ==============================================================================
 class Camera {
-    constructor(w, h) {
-        this.x = 0; this.y = 0;
-        this.width = w; this.height = h;
-        this.shakeAmount = 0;
-    }
-    shake(intensity) {
-        this.shakeAmount = intensity;
-    }
+    constructor(w, h) { this.x = 0; this.y = 0; this.width = w; this.height = h; this.shakeAmount = 0; }
+    shake(intensity) { this.shakeAmount = intensity; }
     update(targetX, targetY) {
         this.x = targetX - this.width / 2;
         this.y = targetY - this.height / 2;
@@ -341,122 +293,63 @@ class Camera {
             if (this.shakeAmount < 0.5) this.shakeAmount = 0;
         }
     }
-    apply(x, y) {
-        return { x: x - this.x, y: y - this.y };
-    }
+    apply(x, y) { return { x: x - this.x, y: y - this.y }; }
 }
 
 class Particle {
     constructor(x, y, color) {
         this.x = x; this.y = y; this.color = color;
         this.radius = Math.random() * 4 + 3;
-        let angle = Math.random() * Math.PI * 2;
-        let speed = Math.random() * 5 + 3;
-        this.vx = Math.cos(angle) * speed;
-        this.vy = Math.sin(angle) * speed;
-        this.alpha = 1.0;
-        this.fadeSpeed = Math.random() * 0.02 + 0.01;
+        let angle = Math.random() * Math.PI * 2, speed = Math.random() * 5 + 3;
+        this.vx = Math.cos(angle) * speed; this.vy = Math.sin(angle) * speed;
+        this.alpha = 1.0; this.fadeSpeed = Math.random() * 0.02 + 0.01;
     }
-    update() {
-        this.vx *= 0.94;
-        this.vy *= 0.94;
-        this.x += this.vx;
-        this.y += this.vy;
-        this.alpha -= this.fadeSpeed;
-    }
+    update() { this.vx *= 0.94; this.vy *= 0.94; this.x += this.vx; this.y += this.vy; this.alpha -= this.fadeSpeed; }
     draw(ctx, camera) {
         if (this.alpha <= 0) return;
         let sc = camera.apply(this.x, this.y);
-        ctx.save();
-        ctx.globalAlpha = Math.max(0, this.alpha);
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(sc.x, sc.y, this.radius, 0, Math.PI * 2);
-        ctx.fill();
-        ctx.restore();
+        ctx.save(); ctx.globalAlpha = Math.max(0, this.alpha); ctx.fillStyle = this.color;
+        ctx.beginPath(); ctx.arc(sc.x, sc.y, this.radius, 0, Math.PI * 2); ctx.fill(); ctx.restore();
     }
 }
 
 // ==============================================================================
-// ENTITIES (ALGAE & ENEMIES)
+// ENTITIES
 // ==============================================================================
 class AlgaeDrop {
     constructor(x, y, value=1) {
-        this.x = x; this.y = y;
-        this.value = value;
-        this.radius = 6;
-        this.isVacuumed = false;
-        
-        let angle = Math.random() * Math.PI * 2;
-        let speed = Math.random() * 3 + 3;
-        this.vx = Math.cos(angle) * speed;
-        this.vy = Math.sin(angle) * speed;
+        this.x = x; this.y = y; this.value = value; this.radius = 6; this.isVacuumed = false;
+        let angle = Math.random() * Math.PI * 2, speed = Math.random() * 3 + 3;
+        this.vx = Math.cos(angle) * speed; this.vy = Math.sin(angle) * speed;
         this.delayTimer = 15;
     }
     updateMagnetism(playerCx, playerCy, magnetRadius) {
-        if (this.delayTimer > 0 && !this.isVacuumed) {
-            this.delayTimer--;
-            this.x += this.vx;
-            this.y += this.vy;
-            this.vx *= 0.88;
-            this.vy *= 0.88;
-            return;
-        }
-
-        let cx = this.x + this.radius, cy = this.y + this.radius;
-        let dist = Math.hypot(playerCx - cx, playerCy - cy);
-        
+        if (this.delayTimer > 0 && !this.isVacuumed) { this.delayTimer--; this.x += this.vx; this.y += this.vy; this.vx *= 0.88; this.vy *= 0.88; return; }
+        let cx = this.x + this.radius, cy = this.y + this.radius, dist = Math.hypot(playerCx - cx, playerCy - cy);
         if (this.isVacuumed || dist < magnetRadius) {
             let baseSpeed = this.isVacuumed ? ALGAE_VACUUM_SPEED : ALGAE_NORMAL_SPEED;
-            let speed = baseSpeed;
-            if (dist < 100) speed = Math.max(baseSpeed, baseSpeed + (100 - dist) * 0.3);
-            
-            if (dist > 0) {
-                this.x += ((playerCx - cx) / dist) * speed;
-                this.y += ((playerCy - cy) / dist) * speed;
-            }
+            let speed = dist < 100 ? Math.max(baseSpeed, baseSpeed + (100 - dist) * 0.3) : baseSpeed;
+            if (dist > 0) { this.x += ((playerCx - cx) / dist) * speed; this.y += ((playerCy - cy) / dist) * speed; }
         }
     }
     draw(ctx, camera) {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
-        ctx.fillStyle = "#32dc64";
-        ctx.beginPath(); ctx.arc(sc.x, sc.y, this.radius, 0, Math.PI * 2); ctx.fill();
-        ctx.strokeStyle = "#c8ffc8";
-        ctx.lineWidth = 1;
-        ctx.stroke();
+        ctx.fillStyle = "#32dc64"; ctx.beginPath(); ctx.arc(sc.x, sc.y, this.radius, 0, Math.PI * 2); ctx.fill();
+        ctx.strokeStyle = "#c8ffc8"; ctx.lineWidth = 1; ctx.stroke();
     }
 }
 
 class Enemy {
     constructor(x, y, radius, color, hp, speed, isBoss = false) {
-        this.x = x; this.y = y;
-        this.radius = radius;
-        this.visualRadius = radius;
-        this.color = color;
-        this.hp = hp;
-        this.maxHp = hp;
-        this.speed = speed;
-        this.flashTimer = 0;
-        this.hpBarTimer = 0;
-        this.kbX = 0;
-        this.kbY = 0;
-        this.isBoss = isBoss;
+        this.x = x; this.y = y; this.radius = radius; this.visualRadius = radius;
+        this.color = color; this.hp = hp; this.maxHp = hp; this.speed = speed;
+        this.flashTimer = 0; this.hpBarTimer = 0; this.kbX = 0; this.kbY = 0; this.isBoss = isBoss;
     }
     hit(damage, kbx = 0, kby = 0) {
-        this.hp -= damage;
-        this.flashTimer = 4;
-        this.hpBarTimer = 120;
-        if (!this.isBoss) {
-            this.kbX += kbx;
-            this.kbY += kby;
-        }
+        this.hp -= damage; this.flashTimer = 4; this.hpBarTimer = 120;
+        if (!this.isBoss) { this.kbX += kbx; this.kbY += kby; }
     }
-    applyKnockback() {
-        this.x += this.kbX;
-        this.y += this.kbY;
-        this.kbX *= 0.82;
-        this.kbY *= 0.82;
-    }
+    applyKnockback() { this.x += this.kbX; this.y += this.kbY; this.kbX *= 0.82; this.kbY *= 0.82; }
     updateBehavior(playerCx, playerCy) {}
     update() {
         if (this.hpBarTimer > 0) this.hpBarTimer--;
@@ -465,33 +358,19 @@ class Enemy {
     }
     drawHpBar(ctx, camera, cx, cy) {
         if (this.hp < this.maxHp && (this.hpBarTimer > 0 || this.isBoss)) {
-            let barW = this.radius * 2;
-            let barH = 5;
-            let barX = cx - barW / 2;
-            let barY = cy - this.radius - 10;
-            
-            ctx.fillStyle = "#501414";
-            ctx.fillRect(barX, barY, barW, barH);
-            
+            let barW = this.radius * 2, barH = 5, barX = cx - barW / 2, barY = cy - this.radius - 10;
+            ctx.fillStyle = "#501414"; ctx.fillRect(barX, barY, barW, barH);
             let ratio = Math.max(0, this.hp / this.maxHp);
-            ctx.fillStyle = "#e63232";
-            ctx.fillRect(barX, barY, barW * ratio, barH);
-            
-            ctx.strokeStyle = "#000";
-            ctx.lineWidth = 1;
-            ctx.strokeRect(barX, barY, barW, barH);
+            ctx.fillStyle = "#e63232"; ctx.fillRect(barX, barY, barW * ratio, barH);
+            ctx.strokeStyle = "#000"; ctx.lineWidth = 1; ctx.strokeRect(barX, barY, barW, barH);
         }
     }
     draw(ctx, camera) {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
-        let isFlashing = this.flashTimer > 0;
-        if (isFlashing) this.flashTimer--;
+        let isFlashing = this.flashTimer > 0; if (isFlashing) this.flashTimer--;
         
         ctx.fillStyle = isFlashing ? "#ffffff" : this.color;
-        ctx.beginPath();
-        ctx.arc(sc.x, sc.y, this.visualRadius, 0, Math.PI * 2);
-        ctx.fill();
-        
+        ctx.beginPath(); ctx.arc(sc.x, sc.y, this.visualRadius, 0, Math.PI * 2); ctx.fill();
         this.drawHpBar(ctx, camera, sc.x, sc.y);
     }
 }
@@ -499,177 +378,86 @@ class Enemy {
 class BacteriaEnemy extends Enemy {
     constructor(x, y) {
         super(x, y, 10, "#8c3caa", 5, 1.8);
-        this.angle = Math.random() * Math.PI * 2;
-        this.tumbleTimer = 0;
-        this.isAngry = false;
-        this.phaseOffset = Math.random() * Math.PI * 2;
+        this.angle = Math.random() * Math.PI * 2; this.tumbleTimer = 0; this.isAngry = false; this.phaseOffset = Math.random() * Math.PI * 2;
     }
     updateBehavior(playerCx, playerCy) {
-        this.applyKnockback();
-        this.tumbleTimer++;
-        let cx = this.x + this.radius, cy = this.y + this.radius;
-        let dx = playerCx - cx, dy = playerCy - cy;
-
-        if (this.tumbleTimer > Math.random() * 30 + 30) {
-            this.angle = Math.atan2(dy, dx) + (Math.random() - 0.5) * 1.6;
-            this.tumbleTimer = 0;
-        }
-
-        let time = Date.now() * 0.008 + this.phaseOffset;
-        let pulse = (Math.sin(time) + 1.0) / 2.0;
-        let currentSpeed = this.speed * (0.5 + pulse * 1.5);
-        this.isAngry = pulse > 0.5;
-
-        this.x += Math.cos(this.angle) * currentSpeed;
-        this.y += Math.sin(this.angle) * currentSpeed;
+        this.applyKnockback(); this.tumbleTimer++;
+        let cx = this.x + this.radius, cy = this.y + this.radius, dx = playerCx - cx, dy = playerCy - cy;
+        if (this.tumbleTimer > Math.random() * 30 + 30) { this.angle = Math.atan2(dy, dx) + (Math.random() - 0.5) * 1.6; this.tumbleTimer = 0; }
+        let time = Date.now() * 0.008 + this.phaseOffset, pulse = (Math.sin(time) + 1.0) / 2.0;
+        let currentSpeed = this.speed * (0.5 + pulse * 1.5); this.isAngry = pulse > 0.5;
+        this.x += Math.cos(this.angle) * currentSpeed; this.y += Math.sin(this.angle) * currentSpeed;
         this.visualRadius = this.radius + Math.sin(time * 2) * 2;
         this.update();
     }
     draw(ctx, camera) {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
         let imgKey = this.isAngry ? "bacterieboos" : "bacterierustig";
-        
-        let isFlashing = this.flashTimer > 0;
-        if (isFlashing) {
-            ctx.save();
-            ctx.filter = "brightness(200%)";
-            this.flashTimer--;
-        }
-        
+        let isFlashing = this.flashTimer > 0; if (isFlashing) { ctx.save(); ctx.filter = "brightness(200%)"; this.flashTimer--; }
         drawSpriteOrFallback(ctx, imgKey, sc.x, sc.y, this.visualRadius * 2.8, this.visualRadius * 2.8, this.angle, (c, x, y, w, h, a) => {
-            c.fillStyle = isFlashing ? "#ffffff" : this.color;
-            c.beginPath(); c.arc(x, y, this.visualRadius, 0, Math.PI * 2); c.fill();
+            c.fillStyle = isFlashing ? "#ffffff" : this.color; c.beginPath(); c.arc(x, y, this.visualRadius, 0, Math.PI * 2); c.fill();
         });
-        
         if (isFlashing) ctx.restore();
         this.drawHpBar(ctx, camera, sc.x, sc.y);
     }
 }
 
 class WaterBeetleEnemy extends Enemy {
-    constructor(x, y) {
-        super(x, y, 11, "#a06428", 12, 9.0);
-        this.state = "GLIDE";
-        this.timer = Math.random() * 30;
-        this.vx = 0.0;
-        this.vy = 0.0;
-    }
+    constructor(x, y) { super(x, y, 11, "#a06428", 12, 9.0); this.state = "GLIDE"; this.timer = Math.random() * 30; this.vx = 0.0; this.vy = 0.0; }
     updateBehavior(playerCx, playerCy) {
-        this.applyKnockback();
-        this.timer--;
-        
+        this.applyKnockback(); this.timer--;
         if (this.state === "GLIDE") {
-            this.vx *= 0.90;
-            this.vy *= 0.90;
+            this.vx *= 0.90; this.vy *= 0.90;
             if (this.timer <= 0) {
-                this.state = "DART";
-                this.timer = 12;
-                let dx = playerCx - (this.x + this.radius), dy = playerCy - (this.y + this.radius);
-                let dist = Math.hypot(dx, dy);
-                if (dist > 0) {
-                    this.vx = (dx / dist) * this.speed;
-                    this.vy = (dy / dist) * this.speed;
-                }
+                this.state = "DART"; this.timer = 12;
+                let dx = playerCx - (this.x + this.radius), dy = playerCy - (this.y + this.radius), dist = Math.hypot(dx, dy);
+                if (dist > 0) { this.vx = (dx / dist) * this.speed; this.vy = (dy / dist) * this.speed; }
             }
-        } else if (this.state === "DART") {
-            if (this.timer <= 0) {
-                this.state = "GLIDE";
-                this.timer = Math.random() * 25 + 25;
-            }
-        }
-        this.x += this.vx;
-        this.y += this.vy;
-        this.update();
+        } else if (this.state === "DART") { if (this.timer <= 0) { this.state = "GLIDE"; this.timer = Math.random() * 25 + 25; } }
+        this.x += this.vx; this.y += this.vy; this.update();
     }
 }
 
 class FishEnemy extends Enemy {
     constructor(x, y) {
         super(x, y, 12, "#f2795c", 15, 2.0);
-        this.state = "CIRCLE";
-        this.orbitDist = Math.random() * 100 + 150;
-        this.orbitAngle = Math.random() * Math.PI * 2;
-        this.orbitDir = Math.random() > 0.5 ? 1 : -1;
-        this.timer = Math.random() * 90 + 90;
-        this.vx = 0.0;
-        this.vy = 0.0;
-        this.facingAngle = 0.0;
+        this.state = "CIRCLE"; this.orbitDist = Math.random() * 100 + 150; this.orbitAngle = Math.random() * Math.PI * 2; this.orbitDir = Math.random() > 0.5 ? 1 : -1;
+        this.timer = Math.random() * 90 + 90; this.vx = 0.0; this.vy = 0.0; this.facingAngle = 0.0;
     }
     updateBehavior(playerCx, playerCy) {
         this.applyKnockback();
-        
         if (this.state === "CIRCLE") {
             this.orbitAngle += this.orbitDir * (this.speed / this.orbitDist);
-            let targetX = playerCx + Math.cos(this.orbitAngle) * this.orbitDist;
-            let targetY = playerCy + Math.sin(this.orbitAngle) * this.orbitDist;
+            let targetX = playerCx + Math.cos(this.orbitAngle) * this.orbitDist, targetY = playerCy + Math.sin(this.orbitAngle) * this.orbitDist;
+            let dx = targetX - this.x, dy = targetY - this.y, dist = Math.hypot(dx, dy);
             
-            let dx = targetX - this.x;
-            let dy = targetY - this.y;
-            let dist = Math.hypot(dx, dy);
-            
-            if (dist > 0) {
-                let targetVx = (dx / dist) * this.speed;
-                let targetVy = (dy / dist) * this.speed;
-                this.vx += (targetVx - this.vx) * 0.08;
-                this.vy += (targetVy - this.vy) * 0.08;
-            }
-            
+            if (dist > 0) { this.vx += ((dx / dist) * this.speed - this.vx) * 0.08; this.vy += ((dy / dist) * this.speed - this.vy) * 0.08; }
             if (Math.hypot(this.vx, this.vy) > 0.5) {
-                let tA = Math.atan2(this.vy, this.vx);
-                let diff = (tA - this.facingAngle + Math.PI) % (Math.PI * 2) - Math.PI;
-                this.facingAngle += diff * 0.15;
+                let tA = Math.atan2(this.vy, this.vx), diff = (tA - this.facingAngle + Math.PI) % (Math.PI * 2) - Math.PI; this.facingAngle += diff * 0.15;
             }
+            this.x += this.vx; this.y += this.vy; this.timer--;
             
-            this.x += this.vx;
-            this.y += this.vy;
-            
-            this.timer--;
             if (this.timer <= 0) {
-                this.state = "STRIKE";
-                this.timer = 25;
-                let pdx = playerCx - this.x, pdy = playerCy - this.y;
-                let pdist = Math.hypot(pdx, pdy);
-                if (pdist > 0) {
-                    this.vx = (pdx / pdist) * (this.speed * 3.2);
-                    this.vy = (pdy / pdist) * (this.speed * 3.2);
-                    this.facingAngle = Math.atan2(this.vy, this.vx);
-                }
+                this.state = "STRIKE"; this.timer = 25;
+                let pdx = playerCx - this.x, pdy = playerCy - this.y, pdist = Math.hypot(pdx, pdy);
+                if (pdist > 0) { this.vx = (pdx / pdist) * (this.speed * 3.2); this.vy = (pdy / pdist) * (this.speed * 3.2); this.facingAngle = Math.atan2(this.vy, this.vx); }
             }
         } else if (this.state === "STRIKE") {
-            this.x += this.vx;
-            this.y += this.vy;
-            this.timer--;
-            if (this.timer <= 0) {
-                this.state = "RECOVER";
-                this.timer = 50;
-            }
+            this.x += this.vx; this.y += this.vy; this.timer--;
+            if (this.timer <= 0) { this.state = "RECOVER"; this.timer = 50; }
         } else if (this.state === "RECOVER") {
-            this.vx *= 0.90;
-            this.vy *= 0.90;
-            this.x += this.vx;
-            this.y += this.vy;
-            this.timer--;
-            if (this.timer <= 0) {
-                this.state = "CIRCLE";
-                this.timer = Math.random() * 90 + 90;
-                this.orbitDist = Math.random() * 100 + 150;
-                this.orbitDir = Math.random() > 0.5 ? 1 : -1;
-            }
+            this.vx *= 0.90; this.vy *= 0.90; this.x += this.vx; this.y += this.vy; this.timer--;
+            if (this.timer <= 0) { this.state = "CIRCLE"; this.timer = Math.random() * 90 + 90; this.orbitDist = Math.random() * 100 + 150; this.orbitDir = Math.random() > 0.5 ? 1 : -1; }
         }
         this.update();
     }
     draw(ctx, camera) {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
         let imgKey = this.state === "STRIKE" ? "visboos" : "visrustig";
-        
-        let isFlashing = this.flashTimer > 0;
-        if (isFlashing) {
-            ctx.save(); ctx.filter = "brightness(200%)"; this.flashTimer--;
-        }
+        let isFlashing = this.flashTimer > 0; if (isFlashing) { ctx.save(); ctx.filter = "brightness(200%)"; this.flashTimer--; }
         
         drawSpriteOrFallback(ctx, imgKey, sc.x, sc.y, 36, 36, this.facingAngle, (c, x, y, w, h, a) => {
-            c.fillStyle = isFlashing ? "#ffffff" : this.color;
-            let tailL = 14;
+            c.fillStyle = isFlashing ? "#ffffff" : this.color; let tailL = 14;
             let p1 = [x - Math.cos(a)*this.radius, y - Math.sin(a)*this.radius];
             let p2 = [x - Math.cos(a)*this.radius - Math.cos(a - 0.6)*tailL, y - Math.sin(a)*this.radius - Math.sin(a - 0.6)*tailL];
             let p3 = [x - Math.cos(a)*this.radius - Math.cos(a + 0.6)*tailL, y - Math.sin(a)*this.radius - Math.sin(a + 0.6)*tailL];
@@ -685,93 +473,44 @@ class FishEnemy extends Enemy {
 class DragonflyEnemy extends Enemy {
     constructor(x, y) {
         super(x, y, 10, "#afe4bd", 22, 2.5);
-        this.state = "STRAFE";
-        this.timer = Math.random() * 40 + 40;
-        this.orbitAngle = Math.random() * Math.PI * 2;
-        this.facingAngle = 0.0;
-        this.dashVx = 0.0;
-        this.dashVy = 0.0;
+        this.state = "STRAFE"; this.timer = Math.random() * 40 + 40; this.orbitAngle = Math.random() * Math.PI * 2;
+        this.facingAngle = 0.0; this.dashVx = 0.0; this.dashVy = 0.0;
     }
     updateBehavior(playerCx, playerCy) {
         this.applyKnockback();
-        let dx = playerCx - this.x, dy = playerCy - this.y;
-        let dist = Math.hypot(dx, dy);
+        let dx = playerCx - this.x, dy = playerCy - this.y, dist = Math.hypot(dx, dy);
         
         if (this.state === "STRAFE") {
             this.orbitAngle += 0.05;
-            let targetX = playerCx + Math.cos(this.orbitAngle) * 200;
-            let targetY = playerCy + Math.sin(this.orbitAngle) * 200;
-            
-            let moveX = targetX - this.x, moveY = targetY - this.y;
-            let moveDist = Math.hypot(moveX, moveY);
-            if (moveDist > 0) {
-                this.x += (moveX / moveDist) * this.speed;
-                this.y += (moveY / moveDist) * this.speed;
-            }
-            
-            this.facingAngle = Math.atan2(dy, dx);
-            this.timer--;
-            if (this.timer <= 0) {
-                this.state = "ANTICIPATE";
-                this.timer = 30;
-            }
+            let targetX = playerCx + Math.cos(this.orbitAngle) * 200, targetY = playerCy + Math.sin(this.orbitAngle) * 200;
+            let moveX = targetX - this.x, moveY = targetY - this.y, moveDist = Math.hypot(moveX, moveY);
+            if (moveDist > 0) { this.x += (moveX / moveDist) * this.speed; this.y += (moveY / moveDist) * this.speed; }
+            this.facingAngle = Math.atan2(dy, dx); this.timer--;
+            if (this.timer <= 0) { this.state = "ANTICIPATE"; this.timer = 30; }
         } else if (this.state === "ANTICIPATE") {
-            this.x += (Math.random() - 0.5) * 4;
-            this.y += (Math.random() - 0.5) * 4;
-            this.facingAngle = Math.atan2(dy, dx);
-            this.timer--;
-            if (this.timer <= 0) {
-                this.state = "DASH";
-                this.timer = 20;
-                if (dist > 0) {
-                    this.dashVx = (dx / dist) * (this.speed * 4.0);
-                    this.dashVy = (dy / dist) * (this.speed * 4.0);
-                }
-            }
+            this.x += (Math.random() - 0.5) * 4; this.y += (Math.random() - 0.5) * 4; this.facingAngle = Math.atan2(dy, dx); this.timer--;
+            if (this.timer <= 0) { this.state = "DASH"; this.timer = 20; if (dist > 0) { this.dashVx = (dx / dist) * (this.speed * 4.0); this.dashVy = (dy / dist) * (this.speed * 4.0); } }
         } else if (this.state === "DASH") {
-            this.x += this.dashVx;
-            this.y += this.dashVy;
-            this.timer--;
-            if (this.timer <= 0) {
-                this.state = "RECOVER";
-                this.timer = 25;
-            }
+            this.x += this.dashVx; this.y += this.dashVy; this.timer--;
+            if (this.timer <= 0) { this.state = "RECOVER"; this.timer = 25; }
         } else if (this.state === "RECOVER") {
-            this.dashVx *= 0.85;
-            this.dashVy *= 0.85;
-            this.x += this.dashVx;
-            this.y += this.dashVy;
-            this.timer--;
-            if (this.timer <= 0) {
-                this.state = "STRAFE";
-                this.timer = Math.random() * 40 + 40;
-                this.orbitAngle = Math.atan2(this.y - playerCy, this.x - playerCx);
-            }
+            this.dashVx *= 0.85; this.dashVy *= 0.85; this.x += this.dashVx; this.y += this.dashVy; this.timer--;
+            if (this.timer <= 0) { this.state = "STRAFE"; this.timer = Math.random() * 40 + 40; this.orbitAngle = Math.atan2(this.y - playerCy, this.x - playerCx); }
         }
         this.update();
     }
     draw(ctx, camera) {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
         let imgKey = ["ANTICIPATE", "DASH"].includes(this.state) ? "libelleboos" : "libellerustig";
-        
-        let isFlashing = this.flashTimer > 0;
-        if (isFlashing) {
-            ctx.save(); ctx.filter = "brightness(200%)"; this.flashTimer--;
-        }
+        let isFlashing = this.flashTimer > 0; if (isFlashing) { ctx.save(); ctx.filter = "brightness(200%)"; this.flashTimer--; }
         
         drawSpriteOrFallback(ctx, imgKey, sc.x, sc.y, 32, 32, this.facingAngle, (c, x, y, w, h, a) => {
-            c.strokeStyle = isFlashing ? "#ffffff" : this.color;
-            c.lineWidth = 2;
-            let flap = Math.sin(Date.now() * 0.05) * 0.5;
-            
+            c.strokeStyle = isFlashing ? "#ffffff" : this.color; c.lineWidth = 2; let flap = Math.sin(Date.now() * 0.05) * 0.5;
             c.beginPath(); c.moveTo(x, y); c.lineTo(x + Math.cos(a + 1.0 + flap) * 16, y + Math.sin(a + 1.0 + flap) * 16); c.stroke();
             c.beginPath(); c.moveTo(x, y); c.lineTo(x + Math.cos(a - 1.0 - flap) * 16, y + Math.sin(a - 1.0 - flap) * 16); c.stroke();
             c.beginPath(); c.moveTo(x, y); c.lineTo(x + Math.cos(a + 2.0 + flap) * 12, y + Math.sin(a + 2.0 + flap) * 12); c.stroke();
             c.beginPath(); c.moveTo(x, y); c.lineTo(x + Math.cos(a - 2.0 - flap) * 12, y + Math.sin(a - 2.0 - flap) * 12); c.stroke();
-            
-            c.fillStyle = isFlashing ? "#ffffff" : this.color;
-            c.beginPath(); c.arc(x, y, this.visualRadius - 2, 0, Math.PI * 2); c.fill();
-            
+            c.fillStyle = isFlashing ? "#ffffff" : this.color; c.beginPath(); c.arc(x, y, this.visualRadius - 2, 0, Math.PI * 2); c.fill();
             c.beginPath(); c.moveTo(x, y); c.lineTo(x - Math.cos(a) * 14, y - Math.sin(a) * 14); c.stroke();
         });
         
@@ -783,57 +522,26 @@ class DragonflyEnemy extends Enemy {
 class PikeEnemy extends Enemy {
     constructor(x, y) {
         super(x, y, 20, "#285a3c", 48, 2.0);
-        this.angle = Math.random() * Math.PI * 2;
-        this.state = "SWIM";
-        this.timer = 0;
-        this.lunge_vx = 0.0;
-        this.lunge_vy = 0.0;
+        this.angle = Math.random() * Math.PI * 2; this.state = "SWIM"; this.timer = 0; this.lunge_vx = 0.0; this.lunge_vy = 0.0;
     }
     updateBehavior(playerCx, playerCy) {
         this.applyKnockback();
-        let dx = playerCx - (this.x + this.radius), dy = playerCy - (this.y + this.radius);
-        let dist = Math.hypot(dx, dy);
+        let dx = playerCx - (this.x + this.radius), dy = playerCy - (this.y + this.radius), dist = Math.hypot(dx, dy);
 
         if (this.state === "SWIM") {
-            let targetAngle = Math.atan2(dy, dx);
-            let diff = (targetAngle - this.angle + Math.PI) % (Math.PI * 2) - Math.PI;
-            this.angle += diff * 0.05;
-            this.x += Math.cos(this.angle) * this.speed;
-            this.y += Math.sin(this.angle) * this.speed;
-            
-            if (dist < 280) {
-                this.state = "AMBUSH_WAIT";
-                this.timer = 35;
-            }
+            let diff = (Math.atan2(dy, dx) - this.angle + Math.PI) % (Math.PI * 2) - Math.PI; this.angle += diff * 0.05;
+            this.x += Math.cos(this.angle) * this.speed; this.y += Math.sin(this.angle) * this.speed;
+            if (dist < 280) { this.state = "AMBUSH_WAIT"; this.timer = 35; }
         } else if (this.state === "AMBUSH_WAIT") {
-            let targetAngle = Math.atan2(dy, dx);
-            let diff = (targetAngle - this.angle + Math.PI) % (Math.PI * 2) - Math.PI;
-            this.angle += diff * 0.15;
-            
+            let diff = (Math.atan2(dy, dx) - this.angle + Math.PI) % (Math.PI * 2) - Math.PI; this.angle += diff * 0.15;
             this.timer--;
-            if (this.timer <= 0) {
-                this.state = "STRIKE";
-                this.timer = 15;
-                this.lunge_vx = Math.cos(this.angle) * 18.0;
-                this.lunge_vy = Math.sin(this.angle) * 18.0;
-            }
+            if (this.timer <= 0) { this.state = "STRIKE"; this.timer = 15; this.lunge_vx = Math.cos(this.angle) * 18.0; this.lunge_vy = Math.sin(this.angle) * 18.0; }
         } else if (this.state === "STRIKE") {
-            this.x += this.lunge_vx;
-            this.y += this.lunge_vy;
-            this.timer--;
-            if (this.timer <= 0) {
-                this.state = "RECOVERY";
-                this.timer = 45;
-            }
+            this.x += this.lunge_vx; this.y += this.lunge_vy; this.timer--;
+            if (this.timer <= 0) { this.state = "RECOVERY"; this.timer = 45; }
         } else if (this.state === "RECOVERY") {
-            this.lunge_vx *= 0.85;
-            this.lunge_vy *= 0.85;
-            this.x += this.lunge_vx;
-            this.y += this.lunge_vy;
-            this.timer--;
-            if (this.timer <= 0) {
-                this.state = "SWIM";
-            }
+            this.lunge_vx *= 0.85; this.lunge_vy *= 0.85; this.x += this.lunge_vx; this.y += this.lunge_vy; this.timer--;
+            if (this.timer <= 0) this.state = "SWIM";
         }
         this.update();
     }
@@ -842,124 +550,66 @@ class PikeEnemy extends Enemy {
 class BossProjectile extends Enemy {
     constructor(x, y, vx, vy, color, radius=8, lifetime=150) {
         super(x, y, radius, color, 1, Math.hypot(vx, vy));
-        this.vx = vx;
-        this.vy = vy;
-        this.lifetime = lifetime;
+        this.vx = vx; this.vy = vy; this.lifetime = lifetime;
     }
     updateBehavior(playerCx, playerCy) {
-        this.x += this.vx;
-        this.y += this.vy;
-        this.lifetime--;
-        if (this.lifetime <= 0 || this.x <= OFFSET_X || this.x >= WORLD_WIDTH - OFFSET_X || this.y <= OFFSET_Y || this.y >= WORLD_HEIGHT - OFFSET_Y) {
-            this.hp = 0;
-        }
+        this.x += this.vx; this.y += this.vy; this.lifetime--;
+        if (this.lifetime <= 0 || this.x <= OFFSET_X || this.x >= WORLD_WIDTH - OFFSET_X || this.y <= OFFSET_Y || this.y >= WORLD_HEIGHT - OFFSET_Y) { this.hp = 0; }
         this.update();
     }
     draw(ctx, camera) {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
-        ctx.fillStyle = this.color;
-        ctx.globalAlpha = 0.4;
-        ctx.beginPath(); ctx.arc(sc.x, sc.y, this.radius + 6, 0, Math.PI * 2); ctx.fill();
-        ctx.globalAlpha = 1.0;
-        ctx.fillStyle = "#ffffff";
-        ctx.beginPath(); ctx.arc(sc.x, sc.y, this.radius * 0.6, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = this.color; ctx.globalAlpha = 0.4; ctx.beginPath(); ctx.arc(sc.x, sc.y, this.radius + 6, 0, Math.PI * 2); ctx.fill();
+        ctx.globalAlpha = 1.0; ctx.fillStyle = "#ffffff"; ctx.beginPath(); ctx.arc(sc.x, sc.y, this.radius * 0.6, 0, Math.PI * 2); ctx.fill();
     }
 }
 
 class WitchBoss extends Enemy {
     constructor(x, y) {
         super(x, y, 35, "#7828a0", 250, 2.0, true);
-        this.state = "WANDER";
-        this.timer = 90;
-        this.facingAngle = 0.0;
-        this.vx = 0.0;
-        this.vy = 0.0;
-        this.attackStep = 0;
-        this.hoverAngle = Math.random() * Math.PI * 2;
-        this.spiralAngle = 0.0;
+        this.state = "WANDER"; this.timer = 90; this.facingAngle = 0.0; this.vx = 0.0; this.vy = 0.0; this.attackStep = 0;
+        this.hoverAngle = Math.random() * Math.PI * 2; this.spiralAngle = 0.0;
     }
-    updateBehavior(playerCx, playerCy) {} // Override logica in main update loop
+    updateBehavior(playerCx, playerCy) {} // Override in loop
     updateBoss(playerCx, playerCy, projectileQueue) {
         this.applyKnockback();
-        
-        let dx = playerCx - (this.x + this.radius);
-        let dy = playerCy - (this.y + this.radius);
-        let targetAngle = Math.atan2(dy, dx);
-        let angleDiff = (targetAngle - this.facingAngle + Math.PI) % (Math.PI * 2) - Math.PI;
+        let dx = playerCx - (this.x + this.radius), dy = playerCy - (this.y + this.radius);
+        let targetAngle = Math.atan2(dy, dx), angleDiff = (targetAngle - this.facingAngle + Math.PI) % (Math.PI * 2) - Math.PI;
         this.facingAngle += angleDiff * 0.15;
 
         if (this.state === "WANDER") {
             this.hoverAngle += 0.02;
-            let idealX = playerCx + Math.cos(this.hoverAngle) * 300;
-            let idealY = playerCy + Math.sin(this.hoverAngle * 1.5) * 200;
-            
-            this.vx += (idealX - (this.x + this.radius)) * 0.005;
-            this.vy += (idealY - (this.y + this.radius)) * 0.005;
-            
-            this.vx *= 0.92;
-            this.vy *= 0.92;
-
-            this.timer--;
-            if (this.timer <= 0) {
-                this.state = Math.random() < 0.5 ? "SPREAD_SHOT" : "SPIRAL";
-                this.timer = 0;
-                this.attackStep = 0;
-            }
+            let idealX = playerCx + Math.cos(this.hoverAngle) * 300, idealY = playerCy + Math.sin(this.hoverAngle * 1.5) * 200;
+            this.vx += (idealX - (this.x + this.radius)) * 0.005; this.vy += (idealY - (this.y + this.radius)) * 0.005;
+            this.vx *= 0.92; this.vy *= 0.92; this.timer--;
+            if (this.timer <= 0) { this.state = Math.random() < 0.5 ? "SPREAD_SHOT" : "SPIRAL"; this.timer = 0; this.attackStep = 0; }
         } else if (this.state === "SPREAD_SHOT") {
-            this.vx *= 0.85;
-            this.vy *= 0.85;
-            this.timer++;
-            
+            this.vx *= 0.85; this.vy *= 0.85; this.timer++;
             if (this.timer % 30 === 0 && this.attackStep < 3) {
                 playSfx("bubbel");
                 for (let offset of [-0.3, 0.0, 0.3]) {
-                    let pVx = Math.cos(targetAngle + offset) * 5.0;
-                    let pVy = Math.sin(targetAngle + offset) * 5.0;
+                    let pVx = Math.cos(targetAngle + offset) * 5.0, pVy = Math.sin(targetAngle + offset) * 5.0;
                     projectileQueue.push(new BossProjectile(this.x + this.radius, this.y + this.radius, pVx, pVy, "#00ffff"));
                 }
-                this.attackStep++;
-                this.vx -= Math.cos(targetAngle) * 3.0;
-                this.vy -= Math.sin(targetAngle) * 3.0;
+                this.attackStep++; this.vx -= Math.cos(targetAngle) * 3.0; this.vy -= Math.sin(targetAngle) * 3.0;
             }
-            if (this.timer > 120) {
-                this.state = "WANDER";
-                this.timer = Math.random() * 30 + 50;
-            }
+            if (this.timer > 120) { this.state = "WANDER"; this.timer = Math.random() * 30 + 50; }
         } else if (this.state === "SPIRAL") {
             let cx = WORLD_WIDTH / 2, cy = WORLD_HEIGHT / 2;
-            this.vx += (cx - (this.x + this.radius)) * 0.001;
-            this.vy += (cy - (this.y + this.radius)) * 0.001;
-            
-            this.vx *= 0.80;
-            this.vy *= 0.80;
-            this.timer++;
-            
+            this.vx += (cx - (this.x + this.radius)) * 0.001; this.vy += (cy - (this.y + this.radius)) * 0.001;
+            this.vx *= 0.80; this.vy *= 0.80; this.timer++;
             if (this.timer % 6 === 0) {
                 this.spiralAngle += 0.38;
-                let pVx = Math.cos(this.spiralAngle) * 3.5;
-                let pVy = Math.sin(this.spiralAngle) * 3.5;
+                let pVx = Math.cos(this.spiralAngle) * 3.5, pVy = Math.sin(this.spiralAngle) * 3.5;
                 projectileQueue.push(new BossProjectile(this.x + this.radius, this.y + this.radius, pVx, pVy, "#ff32c8"));
             }
-            
-            if (this.timer > 120) {
-                this.state = "WANDER";
-                this.timer = Math.random() * 30 + 60;
-            }
+            if (this.timer > 120) { this.state = "WANDER"; this.timer = Math.random() * 30 + 60; }
         }
-
-        this.x += this.vx;
-        this.y += this.vy;
-        this.update();
+        this.x += this.vx; this.y += this.vy; this.update();
     }
     drawHpBar(ctx, camera, cx, cy) {
-        let barW = 600, barH = 28;
-        let barX = (GAME_WIDTH - barW) / 2, barY = GAME_HEIGHT - 45;
-        
-        ctx.fillStyle = "#b432ff";
-        ctx.font = getFont(20);
-        ctx.textAlign = "center";
-        ctx.fillText("THE WITCH", GAME_WIDTH / 2, barY - 10);
-
+        let barW = 600, barH = 28, barX = (GAME_WIDTH - barW) / 2, barY = GAME_HEIGHT - 45;
+        ctx.fillStyle = "#b432ff"; ctx.font = getFont(20); ctx.textAlign = "center"; ctx.fillText("THE WITCH", GAME_WIDTH / 2, barY - 10);
         ctx.fillStyle = "#0f0a14"; ctx.fillRect(barX, barY, barW, barH);
         ctx.strokeStyle = "#b496c8"; ctx.lineWidth = 4; ctx.strokeRect(barX - 4, barY - 4, barW + 8, barH + 8);
         ctx.strokeStyle = "#000000"; ctx.lineWidth = 1; ctx.strokeRect(barX - 1, barY - 1, barW + 2, barH + 2);
@@ -979,9 +629,7 @@ class WitchBoss extends Enemy {
     }
     draw(ctx, camera) {
         let sc = camera.apply(this.x + this.radius, this.y + this.radius);
-        
-        let isFlashing = this.flashTimer > 0;
-        if (isFlashing) this.flashTimer--;
+        let isFlashing = this.flashTimer > 0; if (isFlashing) this.flashTimer--;
 
         if (this.state === "SPIRAL") {
             ctx.strokeStyle = "#c832ff"; ctx.lineWidth = 2;
@@ -989,14 +637,10 @@ class WitchBoss extends Enemy {
         }
 
         if (isFlashing) { ctx.save(); ctx.filter = "brightness(200%)"; }
-        
         drawSpriteOrFallback(ctx, "heks", sc.x, sc.y, this.radius * 2 + 10, this.radius * 2 + 10, this.facingAngle, (c, x, y, w, h, a) => {
-            c.fillStyle = this.color;
-            c.beginPath(); c.arc(x, y, this.radius, 0, Math.PI * 2); c.fill();
-            c.fillStyle = "#ffffff";
-            c.beginPath(); c.arc(x + Math.cos(a) * this.radius, y + Math.sin(a) * this.radius, 5, 0, Math.PI * 2); c.fill();
+            c.fillStyle = this.color; c.beginPath(); c.arc(x, y, this.radius, 0, Math.PI * 2); c.fill();
+            c.fillStyle = "#ffffff"; c.beginPath(); c.arc(x + Math.cos(a) * this.radius, y + Math.sin(a) * this.radius, 5, 0, Math.PI * 2); c.fill();
         });
-        
         if (isFlashing) ctx.restore();
         this.drawHpBar(ctx, camera, sc.x, sc.y);
     }
@@ -1004,29 +648,20 @@ class WitchBoss extends Enemy {
 
 class EnemySpawner {
     constructor(x, y, enemyClass, wave) {
-        this.x = x; this.y = y;
-        this.enemyClass = enemyClass;
-        this.wave = wave;
-        this.timer = 60;
-        this.particles = [];
-        
+        this.x = x; this.y = y; this.enemyClass = enemyClass; this.wave = wave; this.timer = 60; this.particles = [];
         if (enemyClass.name === "FishEnemy") this.spawnColor = "#f2795c";
         else if (enemyClass.name === "DragonflyEnemy") this.spawnColor = "#afe4bd";
         else this.spawnColor = "#b432ff";
     }
     update() {
         this.timer--;
-        if (this.timer % 5 === 0) {
-            this.particles.push(new Particle(this.x + (Math.random() - 0.5) * 30, this.y + (Math.random() - 0.5) * 30, this.spawnColor));
-        }
+        if (this.timer % 5 === 0) this.particles.push(new Particle(this.x + (Math.random() - 0.5) * 30, this.y + (Math.random() - 0.5) * 30, this.spawnColor));
         this.particles.forEach(p => p.update());
         this.particles = this.particles.filter(p => p.alpha > 0);
 
         if (this.timer <= 0) {
             let enemy = new this.enemyClass(this.x, this.y);
-            enemy.maxHp *= (1.0 + this.wave * 0.20);
-            enemy.hp = enemy.maxHp;
-            enemy.speed *= (1.0 + this.wave * 0.05);
+            enemy.maxHp *= (1.0 + this.wave * 0.20); enemy.hp = enemy.maxHp; enemy.speed *= (1.0 + this.wave * 0.05);
             return enemy;
         }
         return null;
@@ -1036,8 +671,7 @@ class EnemySpawner {
         if (sc.x > -50 && sc.x < GAME_WIDTH + 50 && sc.y > -50 && sc.y < GAME_HEIGHT + 50) {
             if (Math.floor(this.timer / 4) % 2 === 0) {
                 let size = 12 + Math.floor(this.timer / 10) * 4;
-                ctx.strokeStyle = this.spawnColor;
-                ctx.lineWidth = 3;
+                ctx.strokeStyle = this.spawnColor; ctx.lineWidth = 3;
                 ctx.beginPath(); ctx.arc(sc.x, sc.y, size, 0, Math.PI * 2); ctx.stroke();
             }
             this.particles.forEach(p => p.draw(ctx, camera));
@@ -1050,30 +684,17 @@ class EnemySpawner {
 // ==============================================================================
 class EvolutionPhase {
     constructor(player) {
-        this.player = player;
-        this.name = "Unknown Phase";
-        this.radius = 10;
-        this.color = "#ffffff";
-        this.acceleration = 0.5;
-        this.friction = 0.90;
-        this.maxLives = 3;
-        this.tier = 0;
-        this.deathColor = "#000000";
+        this.player = player; this.name = "Unknown Phase"; this.radius = 10; this.color = "#ffffff";
+        this.acceleration = 0.5; this.friction = 0.90; this.maxLives = 3; this.tier = 0; this.deathColor = "#000000";
     }
-    applyStats() {
-        this.player.width = this.radius * 2;
-        this.player.height = this.radius * 2;
-    }
-    update() {}
-    draw(ctx, camera, cx, cy) {}
-    processAttacks(enemies, playerCx, playerCy, dmgM, camera) {}
+    applyStats() { this.player.width = this.radius * 2; this.player.height = this.radius * 2; }
+    update() {} draw(ctx, camera, cx, cy) {} processAttacks(enemies, playerCx, playerCy, dmgM, camera) {}
 }
 
 class KikkerdrilPhase extends EvolutionPhase {
     constructor(player) {
         super(player);
-        this.name = "EGG"; this.tier = 1; this.radius = 16;
-        this.color = "#00ff64"; this.deathColor = "#afccd0";
+        this.name = "EGG"; this.tier = 1; this.radius = 16; this.color = "#00ff64"; this.deathColor = "#afccd0";
         this.acceleration = 0.6; this.friction = 0.88; this.maxLives = 3;
         this.auraBaseRadius = 45; this.currentAuraRadius = 0; this.isAuraActive = false;
         this.applyStats();
@@ -1095,14 +716,10 @@ class KikkerdrilPhase extends EvolutionPhase {
             ctx.save();
             ctx.fillStyle = "rgba(175,204,208,0.25)";
             ctx.beginPath(); ctx.arc(cx, cy, this.currentAuraRadius, 0, Math.PI * 2); ctx.fill();
-            ctx.strokeStyle = "rgba(175,204,208,0.6)";
-            ctx.lineWidth = 1;
-            ctx.stroke();
+            ctx.strokeStyle = "rgba(175,204,208,0.6)"; ctx.lineWidth = 1; ctx.stroke();
             ctx.restore();
         }
-
-        let time = Date.now() * 0.004;
-        let sizeScale = 1.0 + (this.player.attackSizeMod - 1.0) * 0.5;
+        let time = Date.now() * 0.004; let sizeScale = 1.0 + (this.player.attackSizeMod - 1.0) * 0.5;
         let currentW = this.radius * 2 * (1.0 + Math.sin(time) * 0.10) * sizeScale;
         let currentH = this.radius * 2 * (1.0 - Math.sin(time) * 0.10) * sizeScale;
 
@@ -1115,9 +732,11 @@ class KikkerdrilPhase extends EvolutionPhase {
         if (this.isAuraActive) {
             enemies.forEach(enemy => {
                 let ecx = enemy.x + enemy.radius, ecy = enemy.y + enemy.radius;
-                if (Math.hypot(playerCx - ecx, playerCy - ecy) < this.currentAuraRadius + enemy.radius) {
-                    enemy.hit(0.35 * dmgM);
-                }
+                // Fast bounding box check
+                if (Math.abs(playerCx - ecx) > this.currentAuraRadius + enemy.radius) return;
+                if (Math.abs(playerCy - ecy) > this.currentAuraRadius + enemy.radius) return;
+                
+                if (Math.hypot(playerCx - ecx, playerCy - ecy) < this.currentAuraRadius + enemy.radius) enemy.hit(0.35 * dmgM);
             });
         }
     }
@@ -1126,18 +745,15 @@ class KikkerdrilPhase extends EvolutionPhase {
 class KikkervisPhase extends EvolutionPhase {
     constructor(player) {
         super(player);
-        this.name = "TADPOLE"; this.tier = 2; this.radius = 14;
-        this.color = "#00c8ff"; this.deathColor = "#000000";
+        this.name = "TADPOLE"; this.tier = 2; this.radius = 14; this.color = "#00c8ff"; this.deathColor = "#000000";
         this.acceleration = 0.9; this.friction = 0.80; this.maxLives = 4;
         this.bubbles = []; this.angle = 0.0; this.animTimer = 0; this.currentFrame = 1; this.spacePressed = false;
         this.applyStats();
     }
     update() {
-        if (this.player.velX !== 0 || this.player.velY !== 0) {
-            this.angle = Math.atan2(this.player.velY, this.player.velX);
-        }
-
+        if (this.player.velX !== 0 || this.player.velY !== 0) this.angle = Math.atan2(this.player.velY, this.player.velX);
         let dashCost = this.player.maxEnergy * 0.5;
+        
         if (this.player.dashPressed) {
             if (!this.spacePressed && !this.player.isExhausted && this.player.energy >= dashCost) {
                 playSfx("dash");
@@ -1146,14 +762,11 @@ class KikkervisPhase extends EvolutionPhase {
                 this.player.velY += Math.sin(this.angle) * 25;
                 this.spacePressed = true;
             }
-        } else {
-            this.spacePressed = false;
-        }
+        } else { this.spacePressed = false; }
 
         if (this.player.actionPressed && !this.player.isExhausted && this.player.energy > 0) {
             this.player.energy -= 0.8;
-            this.player.velX *= 1.03;
-            this.player.velY *= 1.03;
+            this.player.velX *= 1.03; this.player.velY *= 1.03;
             if (Math.random() < 0.25) {
                 playSfx("bubbel");
                 let bubRad = (Math.random() * 6 + 6) * this.player.attackSizeMod;
@@ -1163,9 +776,7 @@ class KikkervisPhase extends EvolutionPhase {
                     radius: bubRad, life: 60.0, maxLife: 60.0
                 });
             }
-        } else {
-            this.player.energy = Math.min(this.player.maxEnergy, this.player.energy + 0.45);
-        }
+        } else { this.player.energy = Math.min(this.player.maxEnergy, this.player.energy + 0.45); }
 
         this.bubbles.forEach(b => { b.life--; b.radius += 0.15; });
         this.bubbles = this.bubbles.filter(b => b.life > 0);
@@ -1177,30 +788,26 @@ class KikkervisPhase extends EvolutionPhase {
                 let alpha = b.life / b.maxLife;
                 ctx.fillStyle = `rgba(150, 230, 255, ${alpha})`;
                 ctx.beginPath(); ctx.arc(scX, scY, b.radius, 0, Math.PI * 2); ctx.fill();
-                ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`;
-                ctx.lineWidth = 1; ctx.stroke();
+                ctx.strokeStyle = `rgba(255, 255, 255, ${alpha})`; ctx.lineWidth = 1; ctx.stroke();
             }
         });
 
         this.animTimer++;
-        if (this.animTimer >= 5) {
-            this.animTimer = 0;
-            this.currentFrame++;
-            if (this.currentFrame > 8) this.currentFrame = 1;
-        }
+        if (this.animTimer >= 5) { this.animTimer = 0; this.currentFrame++; if (this.currentFrame > 8) this.currentFrame = 1; }
 
         let currentW = this.radius * 2.5;
         drawSpriteOrFallback(ctx, `kikkervisje${this.currentFrame}`, cx, cy, currentW, currentW, this.angle, (c, x, y, w, h, a) => {
-            c.fillStyle = this.color;
-            c.beginPath(); c.arc(x, y, this.radius, 0, Math.PI * 2); c.fill();
-            c.strokeStyle = this.color; c.lineWidth = 5;
-            c.beginPath(); c.moveTo(x, y); c.lineTo(x - Math.cos(a)*22, y - Math.sin(a)*22); c.stroke();
+            c.fillStyle = this.color; c.beginPath(); c.arc(x, y, this.radius, 0, Math.PI * 2); c.fill();
+            c.strokeStyle = this.color; c.lineWidth = 5; c.beginPath(); c.moveTo(x, y); c.lineTo(x - Math.cos(a)*22, y - Math.sin(a)*22); c.stroke();
         });
     }
     processAttacks(enemies, playerCx, playerCy, dmgM, camera) {
         this.bubbles.forEach(b => {
             enemies.forEach(e => {
                 let ecx = e.x + e.radius, ecy = e.y + e.radius;
+                if (Math.abs(b.x - ecx) > b.radius + e.radius) return;
+                if (Math.abs(b.y - ecy) > b.radius + e.radius) return;
+                
                 if (Math.hypot(b.x - ecx, b.y - ecy) < b.radius + e.radius) {
                     e.hit(10 * dmgM, (ecx - b.x) * 0.25, (ecy - b.y) * 0.25);
                     b.life = 0;
@@ -1237,17 +844,10 @@ class KikkerPhase extends EvolutionPhase {
             }
         } else if (this.tongueState === "EXTENDING") {
             this.tongueLength += spd;
-            if (this.tongueLength >= maxLen) {
-                this.tongueLength = maxLen;
-                this.tongueState = "RETRACTING";
-            }
+            if (this.tongueLength >= maxLen) { this.tongueLength = maxLen; this.tongueState = "RETRACTING"; }
         } else if (this.tongueState === "RETRACTING") {
             this.tongueLength -= spd;
-            if (this.tongueLength <= 0) {
-                this.tongueLength = 0.0;
-                this.tongueState = "IDLE";
-                this.hitEnemies.clear();
-            }
+            if (this.tongueLength <= 0) { this.tongueLength = 0.0; this.tongueState = "IDLE"; this.hitEnemies.clear(); }
         }
     }
     draw(ctx, camera, cx, cy) {
@@ -1276,15 +876,10 @@ class KikkerPhase extends EvolutionPhase {
         }
 
         drawSpriteOrFallback(ctx, `kikker${this.currentFrame}`, cx, cy, this.radius * 2.8, this.radius * 2.8, this.player.aimAngle, (c, x, y, w, h, a) => {
-            c.fillStyle = this.color;
-            c.beginPath(); c.arc(x, y, this.radius, 0, Math.PI * 2); c.fill();
-            
-            c.fillStyle = "#ffffff";
-            c.beginPath(); c.arc(x - 8, y - 12, 6, 0, Math.PI * 2); c.fill();
+            c.fillStyle = this.color; c.beginPath(); c.arc(x, y, this.radius, 0, Math.PI * 2); c.fill();
+            c.fillStyle = "#ffffff"; c.beginPath(); c.arc(x - 8, y - 12, 6, 0, Math.PI * 2); c.fill();
             c.beginPath(); c.arc(x + 8, y - 12, 6, 0, Math.PI * 2); c.fill();
-            
-            c.fillStyle = "#000000";
-            c.beginPath(); c.arc(x - 8 + Math.cos(a)*3, y - 12 + Math.sin(a)*3, 3, 0, Math.PI * 2); c.fill();
+            c.fillStyle = "#000000"; c.beginPath(); c.arc(x - 8 + Math.cos(a)*3, y - 12 + Math.sin(a)*3, 3, 0, Math.PI * 2); c.fill();
             c.beginPath(); c.arc(x + 8 + Math.cos(a)*3, y - 12 + Math.sin(a)*3, 3, 0, Math.PI * 2); c.fill();
         });
     }
@@ -1336,25 +931,15 @@ class PrinsPhase extends EvolutionPhase {
     update() {
         if (this.isSlashing) {
             this.slashTimer--;
-            if (this.slashTimer <= 0) {
-                this.isSlashing = false;
-                this.cooldownTimer = 12;
-            }
+            if (this.slashTimer <= 0) { this.isSlashing = false; this.cooldownTimer = 12; }
         }
         if (this.cooldownTimer > 0) this.cooldownTimer--;
 
         if (this.player.actionPressed && !this.isSlashing && this.cooldownTimer === 0 && !this.player.isExhausted && this.player.energy >= this.player.maxEnergy) {
             playSfx("sword");
-            this.isSlashing = true;
-            this.slashTimer = this.slashDuration;
-            this.slashAngle = this.player.aimAngle;
-            this.hitEnemies.clear();
-            
-            this.player.energy = 0.0;
-            this.player.isExhausted = true;
-            
-            this.player.velX += Math.cos(this.slashAngle) * 8;
-            this.player.velY += Math.sin(this.slashAngle) * 8;
+            this.isSlashing = true; this.slashTimer = this.slashDuration; this.slashAngle = this.player.aimAngle;
+            this.hitEnemies.clear(); this.player.energy = 0.0; this.player.isExhausted = true;
+            this.player.velX += Math.cos(this.slashAngle) * 8; this.player.velY += Math.sin(this.slashAngle) * 8;
         }
         
         this.player.energy = Math.min(this.player.maxEnergy, this.player.energy + 1.5);
@@ -1384,14 +969,12 @@ class PrinsPhase extends EvolutionPhase {
             }
             ctx.stroke();
 
-            ctx.strokeStyle = "#c8d2dc"; ctx.lineWidth = 7;
-            ctx.beginPath();
+            ctx.strokeStyle = "#c8d2dc"; ctx.lineWidth = 7; ctx.beginPath();
             ctx.moveTo(cx + Math.cos(currentAngle)*this.radius, cy + Math.sin(currentAngle)*this.radius);
             ctx.lineTo(cx + Math.cos(currentAngle)*swordLength, cy + Math.sin(currentAngle)*swordLength);
             ctx.stroke();
             
-            ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 3;
-            ctx.beginPath();
+            ctx.strokeStyle = "#ffffff"; ctx.lineWidth = 3; ctx.beginPath();
             ctx.moveTo(cx + Math.cos(currentAngle)*this.radius, cy + Math.sin(currentAngle)*this.radius);
             ctx.lineTo(cx + Math.cos(currentAngle)*swordLength, cy + Math.sin(currentAngle)*swordLength);
             ctx.stroke();
@@ -1565,15 +1148,16 @@ class CRTEffect {
         for (let y = 0; y < GAME_HEIGHT; y += 3) {
             ctx.fillRect(0, y, GAME_WIDTH, 1);
         }
+
+        let grad = ctx.createRadialGradient(GAME_WIDTH/2, GAME_HEIGHT/2, GAME_HEIGHT/2, GAME_WIDTH/2, GAME_HEIGHT/2, GAME_WIDTH);
+        grad.addColorStop(0, "rgba(0,0,0,0)");
+        grad.addColorStop(1, "rgba(0,0,0,0.6)");
+        ctx.fillStyle = grad;
+        ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
     }
     draw(ctx) {
         if (this.enabled) {
             ctx.drawImage(this.overlay, 0, 0);
-            let grad = ctx.createRadialGradient(GAME_WIDTH/2, GAME_HEIGHT/2, GAME_HEIGHT/2, GAME_WIDTH/2, GAME_HEIGHT/2, GAME_WIDTH);
-            grad.addColorStop(0, "rgba(0,0,0,0)");
-            grad.addColorStop(1, "rgba(0,0,0,0.6)");
-            ctx.fillStyle = grad;
-            ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
         }
     }
 }
@@ -1754,7 +1338,9 @@ class StateManager {
             }));
             this.uiElements.push(new Button(cx, 490, 250, 45, "BACK", () => this.changeState("MENU")));
         } else if (this.currentStateName === "SETTINGS") {
-            let y_controls = 140, y_sound = 200, y_crt = 260, y_color = 320;
+            // Geperfectioneerde gelijke afstanden voor alle opties (afstand label tot knoppen is +25)
+            let y_controls = 145, y_sound = 215, y_crt = 285, y_color = 355;
+            
             this.uiElements.push(new Button(cx, y_controls, 160, 25, "CUSTOMIZE", () => this.changeState("KEYBINDS")));
             this.uiElements.push(new Button(cx - 40, y_sound, 60, 25, "ON", () => { SOUND_ENABLED = true; if(ASSETS.sounds["music"] && ASSETS.sounds["music"].paused) ASSETS.sounds["music"].play().catch(()=>{}); }));
             this.uiElements.push(new Button(cx + 40, y_sound, 60, 25, "OFF", () => { SOUND_ENABLED = false; if(ASSETS.sounds["music"]) ASSETS.sounds["music"].pause(); }));
@@ -1762,7 +1348,7 @@ class StateManager {
             this.uiElements.push(new Button(cx + 40, y_crt, 60, 25, "OFF", () => this.crtEffect.enabled = false));
             
             let colors = ["#ffd700", "#32ff64", "#00c8ff", "#ff32ff", "#f0f0f0"];
-            colors.forEach((c, i) => this.uiElements.push(new ColorButton(cx - 60 + (i * 30), y_color + 35, 8, c, () => this.cursor.color = c)));
+            colors.forEach((c, i) => this.uiElements.push(new ColorButton(cx - 60 + (i * 30), y_color, 8, c, () => this.cursor.color = c)));
             
             this.uiElements.push(new Button(cx, 445, 220, 40, "BACK", () => this.changeState(this.returnTo === "SETTINGS" ? "MENU" : this.returnTo)));
         } else if (this.currentStateName === "KEYBINDS") {
@@ -1924,8 +1510,11 @@ class StateManager {
                 for (let j = i + 1; j < this.enemies.length; j++) {
                     let e1 = this.enemies[i], e2 = this.enemies[j];
                     let dx = e2.x - e1.x, dy = e2.y - e1.y;
-                    let dist = Math.hypot(dx, dy);
                     let minDist = e1.radius + e2.radius;
+                    // Snelle AABB check om zware wiskunde te voorkomen (Optimale prestaties)
+                    if (Math.abs(dx) > minDist || Math.abs(dy) > minDist) continue;
+
+                    let dist = Math.hypot(dx, dy);
                     if (dist < minDist && dist > 0) {
                         let overlap = (minDist - dist) * 0.2;
                         e1.x -= (dx / dist) * overlap; e1.y -= (dy / dist) * overlap;
@@ -1975,7 +1564,7 @@ class StateManager {
             this.enemies = this.enemies.filter(e => e.hp > 0);
             
             if (this.wave >= 10 && this.enemies.length === 0 && this.introTimer === 0 && this.totalFrames > 100) {
-                this.changeState("GAME_OVER"); // Win!
+                this.changeState("GAME_OVER");
             }
         }
     }
@@ -1983,7 +1572,8 @@ class StateManager {
     draw() {
         let cx = GAME_WIDTH / 2, cy = GAME_HEIGHT / 2;
 
-        if (["PLAY", "TUTORIAL"].includes(this.currentStateName)) {
+        if (["PLAY", "TUTORIAL", "PAUSE"].includes(this.currentStateName)) {
+            // Wereld tekenen
             if (ASSETS.images["map1"] && ASSETS.images["map1"].complete && ASSETS.images["map1"].naturalWidth > 0) {
                 this.ctx.drawImage(ASSETS.images["map1"], -this.camera.x, -this.camera.y, WORLD_WIDTH, WORLD_HEIGHT);
             } else {
@@ -1997,18 +1587,24 @@ class StateManager {
             this.deathParticles.forEach(p => p.draw(this.ctx, this.camera));
             if (this.player.lives > 0) this.player.draw(this.ctx, this.camera);
 
-            for (let i = 0; i < this.player.maxLives; i++) {
-                let hX = 20 + i * 26;
-                drawSpriteOrFallback(this.ctx, "hartje", hX + 10, 30, 20, 20, 0, (c, x, y, w, h) => {
-                    c.fillStyle = i < this.player.lives ? "#e63232" : "#323232";
-                    c.beginPath(); c.arc(x, y, 8, 0, Math.PI * 2); c.fill();
-                });
-                if (i >= this.player.lives && ASSETS.images["hartje"] && ASSETS.images["hartje"].complete) {
-                    this.ctx.save();
-                    this.ctx.globalCompositeOperation = "multiply";
-                    this.ctx.fillStyle = "rgba(80,80,80,0.5)";
-                    this.ctx.fillRect(hX, 20, 20, 20);
-                    this.ctx.restore();
+            // Interface tekenen (Hartjes niet tekenen in Tutorial mode)
+            if (this.currentStateName !== "TUTORIAL") {
+                for (let i = 0; i < this.player.maxLives; i++) {
+                    let hX = 20 + i * 26;
+                    let isLost = i >= this.player.lives;
+                    
+                    if (isLost) {
+                        this.ctx.save();
+                        // Grijze en doorzichtige look voor lege hartjes
+                        this.ctx.filter = "grayscale(100%) opacity(50%)";
+                    }
+                    
+                    drawSpriteOrFallback(this.ctx, "hartje", hX + 10, 30, 20, 20, 0, (c, x, y, w, h) => {
+                        c.fillStyle = isLost ? "#323232" : "#e63232";
+                        c.beginPath(); c.arc(x, y, 8, 0, Math.PI * 2); c.fill();
+                    });
+                    
+                    if (isLost) this.ctx.restore();
                 }
             }
 
@@ -2052,14 +1648,23 @@ class StateManager {
                 this.ctx.fillStyle = COLOR_ARCADE_GOLD; this.ctx.font = getFont(36); this.ctx.textAlign = "center";
                 this.ctx.fillText(msg, cx, cy - 80);
             }
+
+            // Pauze specifiek (Overlay filter en text)
+            if (this.currentStateName === "PAUSE") {
+                this.ctx.fillStyle = "rgba(0, 0, 0, 0.6)"; // Vage schaduwlaag
+                this.ctx.fillRect(0, 0, GAME_WIDTH, GAME_HEIGHT);
+                this.ctx.fillStyle = COLOR_WHITE; this.ctx.font = getFont(50); this.ctx.textAlign = "center";
+                this.ctx.fillText("PAUSED", cx, 100);
+            }
             
             this.uiElements.forEach(b => b.draw(this.ctx));
             
         } else {
-            let bgs = { MENU: "achtergrond", PHASE_SELECT: "achtergrond", PAUSE: "achtergrond", SHOP: "shop_bg", GAME_OVER: this.wave >= 10 && this.enemies.length === 0 ? "victory" : "gameover", SETTINGS: "settings", KEYBINDS: "keybinds", HOW_TO_PLAY: "howtoplay" };
+            let bgs = { MENU: "achtergrond", SHOP: "shop_bg", GAME_OVER: this.wave >= 10 && this.enemies.length === 0 ? "victory" : "gameover", SETTINGS: "settings", KEYBINDS: "keybinds", HOW_TO_PLAY: "howtoplay" };
             let bgKey = bgs[this.currentStateName];
             
-            if (ASSETS.images[bgKey] && ASSETS.images[bgKey].complete && ASSETS.images[bgKey].naturalWidth > 0) {
+            // Phase select heeft geen afbeelding meer, vandaar de null/undefined check
+            if (bgKey && ASSETS.images[bgKey] && ASSETS.images[bgKey].complete && ASSETS.images[bgKey].naturalWidth > 0) {
                 this.ctx.drawImage(ASSETS.images[bgKey], 0, 0, GAME_WIDTH, GAME_HEIGHT);
             } else {
                 this.ctx.fillStyle = COLOR_BG_OUTSIDE;
@@ -2069,9 +1674,6 @@ class StateManager {
             if (this.currentStateName === "PHASE_SELECT") {
                 this.ctx.fillStyle = COLOR_ARCADE_GOLD; this.ctx.font = getFont(30); this.ctx.textAlign = "center";
                 this.ctx.fillText("SELECT STARTING PHASE", cx, 70);
-            } else if (this.currentStateName === "PAUSE") {
-                this.ctx.fillStyle = COLOR_WHITE; this.ctx.font = getFont(50); this.ctx.textAlign = "center";
-                this.ctx.fillText("PAUSED", cx, 100);
             } else if (this.currentStateName === "SHOP") {
                 this.ctx.fillStyle = "rgba(10,15,20,0.55)"; this.ctx.fillRect(0, 0, GAME_WIDTH, 60);
                 this.ctx.fillStyle = "#32ff64"; this.ctx.font = getFont(24); this.ctx.textAlign = "left";
@@ -2096,7 +1698,7 @@ class StateManager {
             } else if (this.currentStateName === "SETTINGS") {
                 this.ctx.fillStyle = COLOR_ARCADE_GREEN; this.ctx.font = getFont(15); this.ctx.textAlign = "center";
                 ["CONTROLS", "SOUND", "RETRO CRT EFFECT", "CURSOR COLOR"].forEach((t, i) => {
-                    let ys = [115, 175, 235, 295];
+                    let ys = [120, 190, 260, 330]; // Perfecte wiskundige afstanden (70px per blok)
                     this.ctx.fillText(t, cx, ys[i]);
                 });
             } else if (this.currentStateName === "KEYBINDS") {
