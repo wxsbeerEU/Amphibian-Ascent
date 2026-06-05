@@ -1306,7 +1306,7 @@ class StateManager {
         if (this.currentStateName === "MENU") {
             this.uiElements.push(new Button(cx, 245, 250, 45, "START RUN", () => this.changeState("PHASE_SELECT")));
             this.uiElements.push(new Button(cx, 300, 250, 45, "HOW TO PLAY", () => this.changeState("HOW_TO_PLAY")));
-            this.uiElements.push(new Button(cx, 355, 250, 45, "SETTINGS", () => { this.returnTo = "MENU"; this.changeState("SETTINGS"); }));
+            this.uiElements.push(new Button(cx, 355, 250, 45, "SETTINGS", () => { this.settingsReturnTo = "MENU"; this.changeState("SETTINGS"); }));
         } else if (this.currentStateName === "PHASE_SELECT") {
             this.uiElements.push(new Button(cx, 150, 400, 45, "START AS EGG (WAVE 1)", () => this._startRun(KikkerdrilPhase, 1)));
             this.uiElements.push(new Button(cx, 210, 400, 45, "START AS TADPOLE (WAVE 4)", () => this._startRun(KikkervisPhase, 4)));
@@ -1318,7 +1318,7 @@ class StateManager {
         } else if (this.currentStateName === "PAUSE") {
             this.uiElements.push(new Button(cx, 200, 250, 45, "RESUME", () => this.changeState(this.returnTo)));
             this.uiElements.push(new Button(cx, 260, 250, 45, "RESTART", () => this._startRun(KikkerdrilPhase, 1)));
-            this.uiElements.push(new Button(cx, 320, 250, 45, "SETTINGS", () => { this.returnTo = "PAUSE"; this.changeState("SETTINGS"); }));
+            this.uiElements.push(new Button(cx, 320, 250, 45, "SETTINGS", () => { this.settingsReturnTo = "PAUSE"; this.changeState("SETTINGS"); }));
             this.uiElements.push(new Button(cx, 380, 250, 45, "MAIN MENU", () => this.changeState("MENU")));
         } else if (this.currentStateName === "SHOP") {
             for (let i = 0; i < 3; i++) {
@@ -1350,7 +1350,7 @@ class StateManager {
             let colors = ["#ffd700", "#32ff64", "#00c8ff", "#ff32ff", "#f0f0f0"];
             colors.forEach((c, i) => this.uiElements.push(new ColorButton(cx - 60 + (i * 30), y_color, 8, c, () => this.cursor.color = c)));
             
-            this.uiElements.push(new Button(cx, 445, 220, 40, "BACK", () => this.changeState(this.returnTo === "SETTINGS" ? "MENU" : this.returnTo)));
+            this.uiElements.push(new Button(cx, 445, 220, 40, "BACK", () => this.changeState(this.settingsReturnTo || "MENU")));
         } else if (this.currentStateName === "KEYBINDS") {
             ["UP", "DOWN", "LEFT", "RIGHT"].forEach((dir, i) => {
                 this.uiElements.push(new Button(cx, 185 + i * 60, 160, 25, "", () => this.waitingForKey = dir));
@@ -1399,7 +1399,7 @@ class StateManager {
             if (["PLAY", "TUTORIAL", "SHOP", "SETTINGS", "KEYBINDS", "HOW_TO_PLAY"].includes(this.currentStateName)) {
                 if (this.currentStateName === "PLAY" || this.currentStateName === "TUTORIAL") { this.returnTo = this.currentStateName; this.changeState("PAUSE"); }
                 else if (this.currentStateName === "SHOP") { this.returnTo = "SHOP"; this.changeState("PAUSE"); }
-                else if (this.currentStateName === "SETTINGS") this.changeState(this.returnTo);
+                else if (this.currentStateName === "SETTINGS") this.changeState(this.settingsReturnTo || "MENU");
                 else this.changeState("MENU");
             }
         }
