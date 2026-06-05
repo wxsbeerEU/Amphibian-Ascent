@@ -14,7 +14,7 @@ body {
     align-items: center;
     min-height: 100vh;
     overflow: hidden;
-    user-select: none;
+    user-select: none; /* Voorkomt per ongeluk selecteren van tekst als je klikt */
 }
 
 #game-container {
@@ -27,7 +27,7 @@ body {
 
 canvas {
     display: block;
-    image-rendering: pixelated; /* Retro look */
+    image-rendering: pixelated; 
     image-rendering: crisp-edges;
-    cursor: none; /* Custom cursor wordt door JS getekend */
+    cursor: none; /* Het spel tekent zijn eigen vizier */
 }
