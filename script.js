@@ -15,9 +15,9 @@ const ALGAE_VACUUM_SPEED = 12.0;
 const ALGAE_NORMAL_SPEED = 6.0;
 
 let KEYBINDS = {
-    "UP": "KeyZ",
+    "UP": "KeyW",
     "DOWN": "KeyS",
-    "LEFT": "KeyQ",
+    "LEFT": "KeyA",
     "RIGHT": "KeyD"
 };
 
